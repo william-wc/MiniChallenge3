@@ -8,24 +8,24 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ProfileViewController: UIViewController {
+    
     /*
     
     */
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
-
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
-
+    
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
     }
-
+    
     
 }
 
