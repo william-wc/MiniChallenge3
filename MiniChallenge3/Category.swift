@@ -14,6 +14,6 @@ class Category: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var summary: String
     @NSManaged var image: NSData
-    @NSManaged var categories: NSSet
+//    @NSManaged var categories: NSSet
 
 }

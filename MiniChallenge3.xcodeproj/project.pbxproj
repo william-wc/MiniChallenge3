@@ -136,7 +136,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8FDE840C1B011AFD008EB0CA = {
+		51628C241B0531F70039DA34 /* FrameWork */ = {
 			isa = PBXGroup;
 			children = (
 				51628C221B0511840039DA34 /* QuartzCore.framework */,
@@ -152,8 +152,16 @@
 				51628C041B0510250039DA34 /* Parse.framework */,
 				51628C051B0510250039DA34 /* ParseCrashReporting.framework */,
 				51628C061B0510250039DA34 /* ParseFacebookUtils.framework */,
-				51628C071B0510250039DA34 /* ParseFacebookUtilsV4.framework */,
 				51628C081B0510250039DA34 /* ParseUI.framework */,
+				51628C071B0510250039DA34 /* ParseFacebookUtilsV4.framework */,
+			);
+			name = FrameWork;
+			sourceTree = "<group>";
+		};
+		8FDE840C1B011AFD008EB0CA = {
+			isa = PBXGroup;
+			children = (
+				51628C241B0531F70039DA34 /* FrameWork */,
 				8FDE84171B011AFD008EB0CA /* MiniChallenge3 */,
 				8FDE84301B011AFD008EB0CA /* MiniChallenge3Tests */,
 				8FDE84161B011AFD008EB0CA /* Products */,
