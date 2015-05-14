@@ -9,11 +9,39 @@
 import Foundation
 import UIKit
 
-class SubjectCategoryViewController: UIPageViewController {
+class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var headerImage:UIImageView!
+    @IBOutlet weak var tableView:UITableView!
+    
+    var data:AnyObject!
     
     /*
-    Delegate
+    
     */
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    
+    
+    
+    /*
+    Data Source / Delegate
+    */
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+        
+        return cell
+    }
     
     
 }

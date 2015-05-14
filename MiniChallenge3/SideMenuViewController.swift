@@ -8,14 +8,23 @@
 
 import UIKit
 
+@objc
+protocol SideMenuViewControllerDelegate {
+    optional func itemSelected(index:Int)
+}
+
 class SideMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     @IBOutlet weak var tableView: UITableView!
     
+    var delegate:SideMenuViewControllerDelegate?
+    
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
+        tableView.reloadData()
     }
     
     /*
@@ -27,13 +36,17 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 5
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UITableViewCell
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        delegate?.itemSelected?(indexPath.row)
     }
     
 }

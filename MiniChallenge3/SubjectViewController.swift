@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SubjectViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class SubjectViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -21,7 +21,6 @@ class SubjectViewController: UIViewController, UICollectionViewDataSource, UICol
     */
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         collectionView.backgroundColor = UIColor.clearColor()
     }
     
@@ -42,7 +41,7 @@ class SubjectViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return 30
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -102,6 +101,18 @@ class SubjectViewController: UIViewController, UICollectionViewDataSource, UICol
                 cell.transform = t1
             },
             completion              : nil)
+    }
+    
+    var lastOffset = CGPoint(x: 0, y: 0)
+    var lastTimeInterval:NSTimeInterval = 0
+    var isScrolling:Bool = false
+    
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        isScrolling = true
+    }
+    
+    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        isScrolling = false
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {

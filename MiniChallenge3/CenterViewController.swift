@@ -8,8 +8,24 @@
 
 import UIKit
 
+
+@objc
+protocol CenterViewControllerDelegate {
+    optional func toggleLeftPanel()
+    optional func toggleRightPanel()
+    optional func collapseSidePanels()
+}
+
 class CenterViewController: UIViewController {
     
     var delegate: CenterViewControllerDelegate?
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    @IBAction func onTapMenu(sender: UIBarButtonItem) {
+        delegate?.toggleLeftPanel?()
+    }
 }
