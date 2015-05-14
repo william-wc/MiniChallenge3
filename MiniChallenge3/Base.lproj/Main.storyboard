@@ -155,18 +155,24 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SXI-q6-Xy4">
                                 <rect key="frame" x="0.0" y="40" width="600" height="560"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg 1" id="lSr-jd-Lr7">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="IKZ-GO-QI3">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="IKZ-GO-QI3" customClass="CategoryCell" customModule="MiniChallenge3" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IKZ-GO-QI3" id="jGA-xK-4xk">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eor-so-KiT">
+                                                    <rect key="frame" x="13" y="11" width="133" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="name" destination="eor-so-KiT" id="676-xg-BxG"/>
+                                            <outlet property="text" destination="eor-so-KiT" id="6iI-4K-0eA"/>
                                             <segue destination="BYZ-38-t0r" kind="showDetail" id="TKC-dt-2sH"/>
                                         </connections>
                                     </tableViewCell>
@@ -186,7 +192,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="headerImage" destination="lSr-jd-Lr7" id="UX5-hB-iNE"/>
                         <outlet property="tableView" destination="SXI-q6-Xy4" id="cV1-Ge-ZaP"/>
                     </connections>
                 </viewController>
@@ -246,7 +251,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg 1" width="500" height="500"/>
         <image name="default avatar" width="128" height="128"/>
         <image name="subject 1" width="128" height="128"/>
     </resources>

@@ -11,7 +11,6 @@ import UIKit
 
 class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var headerImage:UIImageView!
     @IBOutlet weak var tableView:UITableView!
     
     var data:AnyObject!
@@ -34,7 +33,7 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return self.tableSize()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -42,6 +41,32 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
         
         return cell
     }
+    
+    
+    func tableSize() -> Int{
+        
+        var query = PFQuery(className:"Exatas")
+        var p = 0
+        
+
+        query.findObjectsInBackgroundWithBlock {
+            (items: [AnyObject]?,erro: NSError?) -> Void in
+            
+            var y = items?[0] as! PFObject
+             p = items!.count
+            
+            
+        }
+        
+        
+        return p
+        
+    }
+    
+    
+    
+    
+    
     
     
 }
