@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 
 class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    var p = 0
+    
+    var x = [String]()
     
     @IBOutlet weak var tableView:UITableView!
     
@@ -20,6 +23,8 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     */
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableSize()
+        
     }
     
     
@@ -34,37 +39,61 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.tableSize()
+        return p
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("cellA") as! CategoryCell
+        
+        var valor = self.x[indexPath.row]
+        
+        
+        cell.name.text = valor as String
         
         return cell
     }
     
     
-    func tableSize() -> Int{
+    func tableSize(){
         
         var query = PFQuery(className:"Exatas")
-        var p = 0
+        
 
         query.findObjectsInBackgroundWithBlock {
             (items: [AnyObject]?,erro: NSError?) -> Void in
             
-            var y = items?[0] as! PFObject
-            p = items!.count
-            tableView.reloadData()
+            self.p = items!.count
+            for i in 0 ... items!.count-1
+                
+            {
+                
+                var obj = items![i] as! PFObject
+                
+                self.x.append(obj["descricao"]! as! String)
+                
+                
+                
+                
+            }
+            
+            
+            
+            
+            self.tableView.reloadData()
+            
             
         }
         
-        return p
+        
+        
         
     }
     
     
     
     
+    
+
     
     
     
