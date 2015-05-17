@@ -12,20 +12,23 @@ import UIKit
 @objc
 protocol CenterViewControllerDelegate {
     optional func toggleLeftPanel()
-    optional func toggleRightPanel()
     optional func collapseSidePanels()
 }
 
 class CenterViewController: UIViewController {
     
-    var delegate: CenterViewControllerDelegate?
+//    let transitionManager:TransitionManager = TransitionManager()
     
+    var delegate: CenterViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    @IBAction func onTapMenu(sender: UIBarButtonItem) {
-        delegate?.toggleLeftPanel?()
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        println("segue")
+//        let destination = segue.destinationViewController as! UIViewController
+//        destination.transitioningDelegate = self.transitionManager
+//    }
+    
 }

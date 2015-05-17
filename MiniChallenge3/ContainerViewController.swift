@@ -13,8 +13,9 @@ enum SlideOutState {
     case LeftPanelExpanded
 }
 
-class ContainerViewController: UIViewController, CenterViewControllerDelegate, SideMenuViewControllerDelegate, UIGestureRecognizerDelegate {
+class ContainerViewController: UIViewController, CenterViewControllerDelegate, SideMenuViewControllerDelegate, UIGestureRecognizerDelegate, UINavigationControllerDelegate {
     
+    let transitionManager:TransitionManager = TransitionManager()
     let centerPanelExpandedOffset:CGFloat = 60
     
     var centerNavigationController: UINavigationController!
@@ -28,37 +29,18 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, S
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        centerViewController = UIStoryboard.centerViewController()
+
+        centerViewController = UIStoryboard.subjectViewController()
         centerViewController.delegate = self
         
         centerNavigationController = MainNavigationController(rootViewController: centerViewController)
+        centerNavigationController.delegate = self
         view.addSubview(centerNavigationController.view)
         addChildViewController(centerNavigationController)
-        
         centerNavigationController.didMoveToParentViewController(self)
-        
         centerNavigationController.view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: "handlePanGesture:"))
-    }
-    
-    func itemSelected(index: Int) {
-        switch(currentState) {
-        case .LeftPanelExpanded: toggleLeftPanel()
-        default: break
-        }
-    }
-    
-    func toggleLeftPanel() {
-        let isExpanded = (currentState == .LeftPanelExpanded)
-        
-        if !isExpanded {
-            addLeftPanelViewController()
-        }
-        
-        animateLeftPanel(shouldExpand: !isExpanded)
     }
     
     func addLeftPanelViewController() {
@@ -112,10 +94,43 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, S
         centerNavigationController.view.layer.shadowOpacity = shouldShowShadow ? 0.8 : 0.0
     }
     
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        switch operation {
+        case .Pop   : transitionManager.presenting = false
+        case .Push  : transitionManager.presenting = true
+        default     : return nil
+        }
+        return transitionManager
+    }
+
+    
+    /*
+    Delegate
+    */
+    func itemSelected(index: Int) {
+        switch(currentState) {
+        case .LeftPanelExpanded: toggleLeftPanel()
+        default: break
+        }
+    }
+    
+    func toggleLeftPanel() {
+        let isExpanded = (currentState == .LeftPanelExpanded)
+        
+        if !isExpanded {
+            addLeftPanelViewController()
+        }
+        
+        animateLeftPanel(shouldExpand: !isExpanded)
+    }
+    
+    /*
+    Action / Event
+    */
     var allowPanGesture = false
     func handlePanGesture(recognizer:UIPanGestureRecognizer) {
         let gestureIsDraggingFromLeftToRight = recognizer.velocityInView(view).x > 0
-        
+
         switch(recognizer.state) {
         case .Began:
             if currentState == .Collapsed {
@@ -125,8 +140,10 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, S
                 showShadowForCenterViewController(true)
             }
         case .Changed:
-            recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
-            recognizer.setTranslation(CGPointZero, inView: view)
+            if leftViewController != nil {
+                recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
+                recognizer.setTranslation(CGPointZero, inView: view)
+            }
             break
         case .Ended:
             if leftViewController != nil {
@@ -162,11 +179,15 @@ private extension UIStoryboard {
         return mainStoryboard().instantiateViewControllerWithIdentifier("SideMenuViewController") as? SideMenuViewController
     }
     
-    class func rightViewController() -> SideMenuViewController? {
-        return mainStoryboard().instantiateViewControllerWithIdentifier("RightViewController") as? SideMenuViewController
-    }
-    
     class func centerViewController() -> CenterViewController? {
         return mainStoryboard().instantiateViewControllerWithIdentifier("CenterViewController") as? CenterViewController
+    }
+    
+    class func subjectViewController() -> SubjectViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("SubjectViewController") as? SubjectViewController
+    }
+    
+    class func contentViewController() -> ContentViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("ContentViewController") as? ContentViewController
     }
 }

@@ -20,10 +20,13 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var delegate:SideMenuViewControllerDelegate?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.tableFooterView = UIView(frame: CGRectZero)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         tableView.reloadData()
     }
     
