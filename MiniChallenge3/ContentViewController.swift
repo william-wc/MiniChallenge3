@@ -13,6 +13,7 @@ class ContentViewController: CenterViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var container: UIView!
     
+    var mudar:String!
     private var views:[UIViewController]!
     private var currentVC:UIViewController!
     
@@ -28,6 +29,8 @@ class ContentViewController: CenterViewController {
         ]
         
         setupRootContainerView(0)
+        
+        parse()
     }
     
     private func setupRootContainerView(index:Int) {
@@ -81,6 +84,34 @@ class ContentViewController: CenterViewController {
                 toVC.didMoveToParentViewController(self)
                 self.segmentedControl.userInteractionEnabled = true
         })
+        
+    }
+    
+    func parse(){
+        var query = PFQuery(className:"Exatas")
+        
+        
+        
+        query.findObjectsInBackgroundWithBlock {
+            
+            (items: [AnyObject]?,erro: NSError?) -> Void in
+            
+            
+            
+            var y = items?[0] as! PFObject
+            
+            for i in 0 ... items!.count-1
+                
+            {
+                
+                var obj = items![i] as! PFObject
+                
+                if((obj["descricao"]?.isEqual(self.mudar)) == true){
+                    var p = obj["materia"]
+                    println("\(p!)")
+                }
+            }
+        }
         
     }
     

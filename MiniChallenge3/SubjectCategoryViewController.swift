@@ -16,6 +16,7 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     var list = [String]()
     var data:AnyObject!
     var didAppear:Bool = false
+    var valueToPass:String!
     
     /*
     
@@ -40,6 +41,13 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         tableViewHideCells()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segue" {
+            var viewController = segue.destinationViewController as? ContentViewController
+            viewController!.mudar = valueToPass
+        }
     }
     
     /*
@@ -77,6 +85,16 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
         cell.name.text = valor
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println("Vc selecionou \(indexPath.row)")
+        let indexPath = tableView.indexPathForSelectedRow()
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! CategoryCell
+        println("\(currentCell)")
+        valueToPass = currentCell.name!.text
+        
+        performSegueWithIdentifier("segue", sender: self)
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {

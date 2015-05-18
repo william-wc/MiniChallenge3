@@ -172,7 +172,7 @@
                                             <outlet property="iconImage" destination="KrO-wj-Y0z" id="hEW-je-5et"/>
                                             <outlet property="name" destination="CBl-kj-wiT" id="CNN-lv-1iz"/>
                                             <outlet property="selectionBar" destination="HWl-1J-c7a" id="Cf6-33-Nep"/>
-                                            <segue destination="SSG-vB-syR" kind="show" id="IjM-hs-mkc"/>
+                                            <segue destination="SSG-vB-syR" kind="custom" identifier="segue" id="Plv-FX-OTh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
