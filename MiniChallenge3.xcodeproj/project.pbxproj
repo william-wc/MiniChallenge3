@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		515925611B0A7295004BB1FF /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515925601B0A7295004BB1FF /* WebKit.framework */; };
+		515925631B0A777F004BB1FF /* html.html in Resources */ = {isa = PBXBuildFile; fileRef = 515925621B0A777F004BB1FF /* html.html */; };
 		51628C091B0510250039DA34 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51628C031B0510250039DA34 /* Bolts.framework */; };
 		51628C0A1B0510250039DA34 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51628C041B0510250039DA34 /* Parse.framework */; };
 		51628C0B1B0510250039DA34 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51628C051B0510250039DA34 /* ParseCrashReporting.framework */; };
@@ -61,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		515925601B0A7295004BB1FF /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		515925621B0A777F004BB1FF /* html.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = html.html; sourceTree = "<group>"; };
 		51628C031B0510250039DA34 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		51628C041B0510250039DA34 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		51628C051B0510250039DA34 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				515925611B0A7295004BB1FF /* WebKit.framework in Frameworks */,
 				51628C231B0511840039DA34 /* QuartzCore.framework in Frameworks */,
 				51628C211B05117B0039DA34 /* Security.framework in Frameworks */,
 				51628C1F1B0511730039DA34 /* StoreKit.framework in Frameworks */,
@@ -177,6 +182,7 @@
 		8FDE840C1B011AFD008EB0CA = {
 			isa = PBXGroup;
 			children = (
+				515925601B0A7295004BB1FF /* WebKit.framework */,
 				51628C241B0531F70039DA34 /* FrameWork */,
 				8FDE84171B011AFD008EB0CA /* MiniChallenge3 */,
 				8FDE84301B011AFD008EB0CA /* MiniChallenge3Tests */,
@@ -268,6 +274,7 @@
 				8FDE84601B025C65008EB0CA /* SubjectCategoryViewController.swift */,
 				8FDE84621B025D90008EB0CA /* CategoryViewController.swift */,
 				8FC5FB031B08E73600231470 /* ContentViewController.swift */,
+				515925621B0A777F004BB1FF /* html.html */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -363,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FDE84231B011AFD008EB0CA /* Main.storyboard in Resources */,
+				515925631B0A777F004BB1FF /* html.html in Resources */,
 				8FDE84281B011AFD008EB0CA /* LaunchScreen.xib in Resources */,
 				8FDE84251B011AFD008EB0CA /* Images.xcassets in Resources */,
 			);

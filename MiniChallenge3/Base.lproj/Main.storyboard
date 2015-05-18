@@ -141,7 +141,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="name" destination="CBl-kj-wiT" id="CNN-lv-1iz"/>
-                                            <segue destination="SSG-vB-syR" kind="show" id="IjM-hs-mkc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -167,6 +166,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="SXI-q6-Xy4" id="cV1-Ge-ZaP"/>
+                        <segue destination="SSG-vB-syR" kind="show" identifier="segue" id="y95-5z-q7S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iaU-O4-6q9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -184,8 +184,28 @@
                     <view key="view" contentMode="scaleToFill" id="vbn-BU-QI8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcS-YB-AVA">
+                                <rect key="frame" x="279" y="289" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kwp-tK-qFn">
+                                <rect key="frame" x="200" y="101" width="201" height="163"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.31942899850000001" green="0.51150242700000004" blue="0.69570707070000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="QcS-YB-AVA" secondAttribute="centerY" id="Tgr-fg-3kc"/>
+                            <constraint firstItem="QcS-YB-AVA" firstAttribute="centerX" secondItem="vbn-BU-QI8" secondAttribute="centerX" id="vZF-jJ-o4L"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="QcS-YB-AVA" id="cse-cc-ThY"/>
+                        <outlet property="webView" destination="Kwp-tK-qFn" id="7HJ-EQ-h3h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5p5-oe-onb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,6 +11,8 @@ import UIKit
 
 class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var valueToPass:String!
+    
     var list = [String]()
     
     @IBOutlet weak var tableView:UITableView!
@@ -33,7 +35,7 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return p
+        return list.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -58,6 +60,34 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
             
             self.tableView.reloadData()
         }
+    }
+    
+   
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println("Vc selecionou \(indexPath.row)")
+        let indexPath = tableView.indexPathForSelectedRow()
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! CategoryCell
+        println("\(currentCell)")
+        valueToPass = currentCell.name!.text
+        
+        performSegueWithIdentifier("segue", sender: self)
+        
+        
+    
+    }
+    
+    override func  prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "segue"){
+           
+            
+            var viewController = segue.destinationViewController as? ContentViewController
+            
+            viewController!.mudar = valueToPass
+            
+            
+        }
+        
+    
     }
     
     
