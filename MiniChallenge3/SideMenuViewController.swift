@@ -13,10 +13,11 @@ protocol SideMenuViewControllerDelegate {
     optional func itemSelected(index:Int)
 }
 
-class SideMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+
+class SideMenuViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
-    @IBOutlet weak var tableView: UITableView!
+    var options:[AnyObject] = []
     
     var delegate:SideMenuViewControllerDelegate?
     
@@ -34,21 +35,21 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     Data Source / Delegate
     */
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UITableViewCell
+  
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! SideMenuCell
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         delegate?.itemSelected?(indexPath.row)
     }
     

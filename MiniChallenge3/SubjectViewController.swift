@@ -13,6 +13,7 @@ class SubjectViewController: CenterViewController, UICollectionViewDataSource, U
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var didAppear:Bool = false
     var subjects:[AnyObject] = []
     
     /*
@@ -23,8 +24,20 @@ class SubjectViewController: CenterViewController, UICollectionViewDataSource, U
         collectionView.backgroundColor = UIColor.clearColor()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        didAppear = false
+        collectionView.reloadData()
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        didAppear = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        collectionViewHideCells()
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -60,53 +73,28 @@ class SubjectViewController: CenterViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        let t0 = CGAffineTransformMakeTranslation((indexPath.row % 2 == 0 ? -1 : 1) * 100, 0)
-        CGAffineTransformScale(t0, 0.8, 0.8)
-        
-        let t1 = CGAffineTransformMakeTranslation(0, 0)
-        CGAffineTransformScale(t1, 1.0, 1.0)
-        
-        cell.alpha = 0.3
-        cell.transform = t0
-        
-        UIView.animateWithDuration(0.7,
-            delay                   : 0.5,
-            usingSpringWithDamping  : 0.6,
-            initialSpringVelocity   : 1.0,
-            options                 : UIViewAnimationOptions.CurveEaseIn,
-            animations              : { () -> Void in
-                cell.alpha = 1.0
-                cell.transform = t1
-            },
-            completion              : nil)
+        let delay = didAppear ? 0.0 : 0.5 + 0.2 * Double(Int(indexPath.row / 2))
+        (cell as! SubjectCell).animateIn(delay, indexPath: indexPath)
     }
     
     func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
-        let cell = collectionView.cellForItemAtIndexPath(indexPath)!
-        let t0 = CGAffineTransformMakeScale(0.7, 0.7)
-        UIView.animateWithDuration(0.3,
-            delay                   : 0.0,
-            usingSpringWithDamping  : 0.6,
-            initialSpringVelocity   : 1.0,
-            options                 : UIViewAnimationOptions.CurveEaseIn,
-            animations              : { () -> Void in
-                cell.transform = t0
-            },
-            completion              : nil)
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SubjectCell
+        cell.setHighlight(true)
     }
     
     func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
-        let cell = collectionView.cellForItemAtIndexPath(indexPath)!
-        let t1 = CGAffineTransformMakeScale(1.0, 1.0)
-        UIView.animateWithDuration(0.3,
-            delay                   : 0.0,
-            usingSpringWithDamping  : 0.6,
-            initialSpringVelocity   : 1.0,
-            options                 : UIViewAnimationOptions.CurveEaseIn,
-            animations              : { () -> Void in
-                cell.transform = t1
-            },
-            completion              : nil)
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SubjectCell
+        cell.setHighlight(false)
+    }
+    
+    func collectionViewHideCells() {
+        let paths = collectionView.indexPathsForVisibleItems() as! [NSIndexPath]
+        for i:Int in 0...paths.count-1 {
+            var path = paths[i]
+            var cell = collectionView.cellForItemAtIndexPath(path) as! BaseAnimatableCell
+            var delay = 0.13 * Double(Int(i / 2))
+            cell.animateOut(delay, indexPath: path)
+        }
     }
     
 }

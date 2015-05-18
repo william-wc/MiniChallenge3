@@ -15,9 +15,10 @@ enum SlideOutState {
 
 class ContainerViewController: UIViewController, CenterViewControllerDelegate, SideMenuViewControllerDelegate, UIGestureRecognizerDelegate, UINavigationControllerDelegate {
     
-    let transitionManager:TransitionManager = TransitionManager()
     let centerPanelExpandedOffset:CGFloat = 60
     
+    let transitionManager:TransitionManager = TransitionManager()
+
     var centerNavigationController: UINavigationController!
     var centerViewController: CenterViewController!
     var leftViewController:SideMenuViewController?
@@ -128,21 +129,29 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, S
     Action / Event
     */
     var allowPanGesture = false
+    var startingContact = CGPoint()
     func handlePanGesture(recognizer:UIPanGestureRecognizer) {
         let gestureIsDraggingFromLeftToRight = recognizer.velocityInView(view).x > 0
-
+        
         switch(recognizer.state) {
         case .Began:
             if currentState == .Collapsed {
                 if gestureIsDraggingFromLeftToRight {
                     addLeftPanelViewController()
                 }
+                startingContact = recognizer.locationInView(view)
                 showShadowForCenterViewController(true)
             }
         case .Changed:
             if leftViewController != nil {
+                var totalWidth = CGRectGetWidth(centerNavigationController.view.frame) - centerPanelExpandedOffset
+                var px = (recognizer.locationInView(view).x - startingContact.x) / totalWidth
+//                println(px)
+                
                 recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
                 recognizer.setTranslation(CGPointZero, inView: view)
+                
+                //leftViewController?.view.alpha = 0.5
             }
             break
         case .Ended:
@@ -160,7 +169,6 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, S
                 default:
                     break
                 }
-//                println("\(isInThreshold), \(hasEnoughVelocity)")
             }
             break
         default:

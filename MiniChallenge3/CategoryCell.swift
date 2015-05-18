@@ -8,9 +8,70 @@
 
 import UIKit
 
-class CategoryCell: UITableViewCell {
+class CategoryCell: UITableViewCell, BaseAnimatableCell {
 
+    let lineOffset:CGFloat = 10
+    let highlightedColor = UIColor(red: 102/256.0, green: 185/256.0, blue: 165/256.0, alpha: 1.0)
+    
     @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var iconImage: UIImageView!
+    @IBOutlet weak var selectionBar: UIView!
+
+    
+    override func setHighlighted(highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        setDisplay(highlighted)
+    }
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        setDisplay(selected)
+    }
+    
+    private func setDisplay(selected: Bool) {
+        if selected {
+            selectionBar.backgroundColor = highlightedColor
+        } else {
+            selectionBar.backgroundColor = UIColor.clearColor()
+        }
+    }
+    
+    func animateIn(delay: Double, indexPath: NSIndexPath) {
+        var t0 = CGAffineTransformMakeTranslation(self.bounds.width, 0)
+        CGAffineTransformScale(t0, 0.8, 0.8)
+        var t1 = CGAffineTransformIdentity
+        
+        self.alpha = 0.7
+        self.transform = t0
+        UIView.animateWithDuration(
+            0.5,
+            delay: delay,
+            usingSpringWithDamping: 0.7,
+            initialSpringVelocity: 0.1,
+            options: UIViewAnimationOptions.CurveEaseIn,
+            animations: { () -> Void in
+                self.alpha = 1.0
+                self.transform = t1
+            },
+            completion: nil)
+    }
+    
+    func animateOut(delay:Double, indexPath: NSIndexPath) {
+        var t1 = CGAffineTransformMakeTranslation(-self.bounds.width, 0)
+        CGAffineTransformScale(t1, 0.8, 0.8)
+        
+        UIView.animateWithDuration(
+            0.5,
+            delay: delay,
+            usingSpringWithDamping: 0.7,
+            initialSpringVelocity: 0.1,
+            options: UIViewAnimationOptions.CurveEaseIn,
+            animations: { () -> Void in
+                self.alpha = 0.7
+                self.transform = t1
+            },
+            completion: nil)
+    }
     
     
 }
