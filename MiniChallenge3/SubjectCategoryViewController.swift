@@ -10,9 +10,8 @@ import Foundation
 import UIKit
 
 class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    var p = 0
     
-    var x = [String]()
+    var list = [String]()
     
     @IBOutlet weak var tableView:UITableView!
     
@@ -24,11 +23,7 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableSize()
-        
     }
-    
-    
-    
     
     /*
     Data Source / Delegate
@@ -42,50 +37,27 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("cellA") as! CategoryCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("cell") as! CategoryCell
+        var valor = self.list[indexPath.row]
         
-        var valor = self.x[indexPath.row]
-        
-        
-        cell.name.text = valor as String
+        cell.name.text = valor
         
         return cell
     }
     
-    
-    func tableSize(){
-        
+    func tableSize() {
         var query = PFQuery(className:"Exatas")
         
-
         query.findObjectsInBackgroundWithBlock {
             (items: [AnyObject]?,erro: NSError?) -> Void in
             
-            self.p = items!.count
-            for i in 0 ... items!.count-1
-                
-            {
-                
+            for i in 0 ... items!.count-1 {
                 var obj = items![i] as! PFObject
-                
-                self.x.append(obj["descricao"]! as! String)
-                
-                
-                
-                
+                self.list.append(obj["descricao"]! as! String)
             }
             
-            
-            
-            
             self.tableView.reloadData()
-            
-            
         }
-        
-        
-        
-        
     }
     
     
