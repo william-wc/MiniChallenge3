@@ -10,10 +10,7 @@ import Foundation
 
 class ConnectionManager
 {
-    func salvarNoParse(classe:NSString){
-        //Acho desnecessario esse metodo.
-        
-    }
+   
     
     func readyOneCollOfOneTable(classe:NSString, coluna:NSString)->NSArray{
         
@@ -40,10 +37,13 @@ class ConnectionManager
     
     
     func readyRelation(classe:NSString, coluna:NSString, descricao:NSString) -> NSArray{
-//var relation = PFRelation().valueForKey(descricao as String)
         
         var query = PFQuery(className:classe as String)
-        var array = [String]()
+        var array = [Pergunta]()
+        var quest:String!
+        var index:Int!
+        var opcoes:[String]!
+        var resp:String!
         
         query.findObjectsInBackgroundWithBlock {
             
@@ -59,9 +59,20 @@ class ConnectionManager
                     cueri!.findObjectsInBackgroundWithBlock {
                         (items2: [AnyObject]?,erro: NSError?) -> Void in
                         for obj2 in items2!{
-                            var aux = obj2["questao"]!
-                            println("B:\(aux!)")
-                            array.append(obj2["questao"]! as! String)
+                          quest = obj2["questao"] as! String
+                          index = obj2["index"] as! Int
+                          opcoes = obj2["opcoes"] as! [String]
+                          resp = obj2["resolucao"]! as! String
+                            
+                            var p: Pergunta
+                            p = Pergunta(t: quest, i: index, alt: opcoes, d: resp)
+                            array.append(p)
+                            
+                            
+                            
+
+                            
+                            
                         }
                 
                     }
