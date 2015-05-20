@@ -9,4 +9,20 @@
 import Foundation
 class pergunta: NSObject {
     
+    var titulo: String!
+    var indexResp: Int!
+    var alternativas = [String]()
+    var descriResp: String!
+    
+    
+    
+    init(t:String, i:Int, alt:NSArray, d:String) {
+        titulo = t
+        indexResp = i
+        alternativas = alt as! [(String)]
+        descriResp = d
+    }
+    
+    
+    
 }
