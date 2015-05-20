@@ -11,6 +11,9 @@ import UIKit
 
 class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    private let anim_delay = 0.3
+    private let anim_cell_delay = 0.13
+    
     @IBOutlet weak var tableView:UITableView!
     
     var list = [String]()
@@ -98,7 +101,7 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        let delay = didAppear ? 0 : 0.3 + 0.13 * Double(indexPath.row)
+        let delay = didAppear ? 0 : anim_delay + anim_cell_delay * Double(indexPath.row)
         (cell as! BaseAnimatableCell).animateIn(delay, indexPath: indexPath)
     }
     
@@ -107,7 +110,7 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
         for i:Int in 0...paths.count-1 {
             var path = paths[i]
             var cell = tableView.cellForRowAtIndexPath(path) as! BaseAnimatableCell
-            var delay = 0.13 * Double(i)
+            var delay = anim_cell_delay * Double(i)
             cell.animateOut(delay, indexPath: path)
         }
     }

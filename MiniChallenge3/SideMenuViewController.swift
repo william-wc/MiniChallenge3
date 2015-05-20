@@ -49,6 +49,14 @@ class SideMenuViewController: UITableViewController, UITableViewDataSource, UITa
         return cell
     }
     
+    override func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
+        (tableView.cellForRowAtIndexPath(indexPath) as! SideMenuCell).setHighlighted(true, animated: true)
+    }
+    
+    override func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
+        (tableView.cellForRowAtIndexPath(indexPath) as! SideMenuCell).setHighlighted(false, animated: true)
+    }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         delegate?.itemSelected?(indexPath.row)
     }

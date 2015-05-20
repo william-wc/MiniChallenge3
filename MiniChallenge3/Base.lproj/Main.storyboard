@@ -132,17 +132,17 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KrO-wj-Y0z">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="subject 4" translatesAutoresizingMaskIntoConstraints="NO" id="KrO-wj-Y0z">
                                                     <rect key="frame" x="23" y="8" width="52" height="52"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="KrO-wj-Y0z" secondAttribute="height" multiplier="1:1" id="hmk-hl-Io2"/>
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWl-1J-c7a">
-                                                    <rect key="frame" x="8" y="8" width="7" height="52"/>
+                                                    <rect key="frame" x="8" y="8" width="4" height="52"/>
                                                     <color key="backgroundColor" red="0.20000000000000001" green="0.65098039220000004" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="7" id="uig-DE-Kjo"/>
+                                                        <constraint firstAttribute="width" constant="4" id="uig-DE-Kjo"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -164,6 +164,7 @@
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="U9Y-1a-5OB"/>
+                                                    <exclude reference="aVg-sZ-8Gy"/>
                                                     <exclude reference="Jwz-cv-Wok"/>
                                                 </mask>
                                             </variation>
@@ -172,7 +173,6 @@
                                             <outlet property="iconImage" destination="KrO-wj-Y0z" id="hEW-je-5et"/>
                                             <outlet property="name" destination="CBl-kj-wiT" id="CNN-lv-1iz"/>
                                             <outlet property="selectionBar" destination="HWl-1J-c7a" id="Cf6-33-Nep"/>
-                                            <segue destination="SSG-vB-syR" kind="custom" identifier="segue" id="Plv-FX-OTh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -198,6 +198,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="SXI-q6-Xy4" id="cV1-Ge-ZaP"/>
+                        <segue destination="SSG-vB-syR" kind="custom" identifier="segue" id="osr-XI-a1r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iaU-O4-6q9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -332,7 +333,7 @@
         <scene sceneID="dpe-LU-wIh">
             <objects>
                 <tableViewController storyboardIdentifier="SideMenuViewController" id="IQv-hU-1KT" customClass="SideMenuViewController" customModule="MiniChallenge3" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ztv-qz-qoP">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ztv-qz-qoP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.74117647060000003" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -347,23 +348,29 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqA-qy-nKw">
-                                            <rect key="frame" x="75" y="8" width="517" height="44"/>
+                                            <rect key="frame" x="60" y="8" width="532" height="45"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bR4-Hm-bWf">
-                                            <rect key="frame" x="8" y="8" width="7" height="44"/>
+                                            <rect key="frame" x="5" y="8" width="4" height="45"/>
                                             <color key="backgroundColor" red="0.20000000000000001" green="0.65098039220000004" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="7" id="taM-3K-M2z"/>
+                                                <constraint firstAttribute="width" constant="4" id="taM-3K-M2z"/>
                                             </constraints>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pzb-Sk-IwO">
-                                            <rect key="frame" x="23" y="8" width="44" height="44"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon main menu" translatesAutoresizingMaskIntoConstraints="NO" id="pzb-Sk-IwO">
+                                            <rect key="frame" x="17" y="13" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="pzb-Sk-IwO" secondAttribute="height" multiplier="1:1" id="Rgl-3Q-smo"/>
+                                                <constraint firstAttribute="width" secondItem="pzb-Sk-IwO" secondAttribute="height" multiplier="1:1" id="bBi-Gx-XSY"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Rgl-3Q-smo"/>
+                                                </mask>
+                                            </variation>
                                         </imageView>
                                     </subviews>
                                     <constraints>
@@ -374,16 +381,18 @@
                                         <constraint firstItem="bR4-Hm-bWf" firstAttribute="top" secondItem="EaO-17-OS8" secondAttribute="topMargin" id="HIE-Ja-5M4"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="mqA-qy-nKw" secondAttribute="bottom" id="Hrl-Ie-aaB"/>
                                         <constraint firstItem="pzb-Sk-IwO" firstAttribute="leading" secondItem="bR4-Hm-bWf" secondAttribute="trailing" constant="8" id="VD6-ou-Hoj"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="pzb-Sk-IwO" secondAttribute="bottom" constant="5" id="YjO-eT-WIQ"/>
                                         <constraint firstItem="mqA-qy-nKw" firstAttribute="leading" secondItem="bR4-Hm-bWf" secondAttribute="trailing" constant="8" id="arq-Vu-JLB"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="mqA-qy-nKw" secondAttribute="trailing" id="iRd-uq-f8z"/>
-                                        <constraint firstItem="bR4-Hm-bWf" firstAttribute="leading" secondItem="EaO-17-OS8" secondAttribute="leadingMargin" id="lsE-LF-vBF"/>
+                                        <constraint firstItem="bR4-Hm-bWf" firstAttribute="leading" secondItem="EaO-17-OS8" secondAttribute="leadingMargin" constant="-3" id="lsE-LF-vBF"/>
                                         <constraint firstItem="mqA-qy-nKw" firstAttribute="top" secondItem="EaO-17-OS8" secondAttribute="topMargin" id="no8-xT-aZn"/>
-                                        <constraint firstItem="pzb-Sk-IwO" firstAttribute="bottom" secondItem="EaO-17-OS8" secondAttribute="bottomMargin" id="vNV-6Q-I5K"/>
-                                        <constraint firstItem="pzb-Sk-IwO" firstAttribute="top" secondItem="EaO-17-OS8" secondAttribute="topMargin" id="vh6-zv-0rB"/>
+                                        <constraint firstItem="pzb-Sk-IwO" firstAttribute="bottom" secondItem="EaO-17-OS8" secondAttribute="bottomMargin" constant="5" id="vNV-6Q-I5K"/>
+                                        <constraint firstItem="pzb-Sk-IwO" firstAttribute="top" secondItem="EaO-17-OS8" secondAttribute="topMargin" constant="5" id="vh6-zv-0rB"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="bR4-Hm-bWf" secondAttribute="bottom" id="y6d-KB-dWe"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
+                                            <exclude reference="vNV-6Q-I5K"/>
                                             <exclude reference="BZS-Kd-iF5"/>
                                             <exclude reference="Gr3-iQ-Toj"/>
                                             <exclude reference="arq-Vu-JLB"/>
@@ -430,8 +439,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon main menu" width="128" height="128"/>
         <image name="icon menu" width="44" height="44"/>
         <image name="menu-header" width="509" height="232"/>
         <image name="subject 1" width="128" height="128"/>
+        <image name="subject 4" width="128" height="128"/>
     </resources>
 </document>
