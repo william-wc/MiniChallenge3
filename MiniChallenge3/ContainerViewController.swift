@@ -130,6 +130,7 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, S
     */
     var allowPanGesture = false
     var startingContact = CGPoint()
+    var savedPoint = CGPoint()
     func handlePanGesture(recognizer:UIPanGestureRecognizer) {
         let gestureIsDraggingFromLeftToRight = recognizer.velocityInView(view).x > 0
         
@@ -144,12 +145,19 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, S
             }
         case .Changed:
             if leftViewController != nil {
-                var totalWidth = CGRectGetWidth(centerNavigationController.view.frame) - centerPanelExpandedOffset
-                var px = (recognizer.locationInView(view).x - startingContact.x) / totalWidth
+//                var totalWidth = CGRectGetWidth(centerNavigationController.view.frame) - centerPanelExpandedOffset
+//                var px = (recognizer.locationInView(view).x - startingContact.x) / totalWidth
 //                println(px)
                 
-                recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
-                recognizer.setTranslation(CGPointZero, inView: view)
+                
+                let dt = recognizer.translationInView(view).x - savedPoint.x
+                savedPoint.x = recognizer.translationInView(view).x
+                println(dt)
+                recognizer.view!.center.x = recognizer.view!.center.x + dt
+                
+                
+//                recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
+//                recognizer.setTranslation(CGPointZero, inView: view)
                 
                 //leftViewController?.view.alpha = 0.5
             }

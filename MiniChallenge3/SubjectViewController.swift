@@ -10,6 +10,8 @@ import UIKit
 
 class SubjectViewController: CenterViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
     
+    private let anim_delay = 0.5
+    private let anim_cell_delay = 0.13
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -73,7 +75,7 @@ class SubjectViewController: CenterViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        let delay = didAppear ? 0.0 : 0.5 + 0.2 * Double(Int(indexPath.row / 2))
+        let delay = didAppear ? 0.0 : anim_delay + anim_cell_delay * Double(Int(indexPath.row / 2))
         (cell as! SubjectCell).animateIn(delay, indexPath: indexPath)
     }
     
@@ -92,7 +94,7 @@ class SubjectViewController: CenterViewController, UICollectionViewDataSource, U
         for i:Int in 0...paths.count-1 {
             var path = paths[i]
             var cell = collectionView.cellForItemAtIndexPath(path) as! BaseAnimatableCell
-            var delay = 0.13 * Double(Int(i / 2))
+            var delay = anim_cell_delay * Double(Int(i / 2))
             cell.animateOut(delay, indexPath: path)
         }
     }

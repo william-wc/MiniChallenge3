@@ -10,6 +10,8 @@ import UIKit
 
 class ContentViewController: CenterViewController {
     
+    private let anim_transition_duration = 0.5
+    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var container: UIView!
     
@@ -28,8 +30,10 @@ class ContentViewController: CenterViewController {
             storyboard.instantiateViewControllerWithIdentifier("Content3ViewController") as! UIViewController
         ]
         
-        setupRootContainerView(0)
+        println(self.navigationController?.viewControllers.count)
         
+        setupRootContainerView(0)
+        println(self.navigationController?.viewControllers.count)
         parse()
     }
     
@@ -77,7 +81,7 @@ class ContentViewController: CenterViewController {
         self.transitionFromViewController(
             currentVC,
             toViewController: toVC,
-            duration        : 0.5,
+            duration        : anim_transition_duration,
             options         : UIViewAnimationOptions.CurveEaseOut,
             animations      : { () -> Void in
                 toVC.view.transform = CGAffineTransformIdentity
@@ -105,8 +109,6 @@ class ContentViewController: CenterViewController {
         query.findObjectsInBackgroundWithBlock {
             
             (items: [AnyObject]?,erro: NSError?) -> Void in
-            
-            
             
             var y = items?[0] as! PFObject
             

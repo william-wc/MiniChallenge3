@@ -14,6 +14,16 @@ class SideMenuCell: UITableViewCell, BaseAnimatableCell {
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var lblText: UILabel!
     
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = UIColor.clearColor()
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.backgroundColor = UIColor.clearColor()
+    }
+    
     override func setHighlighted(highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
         setDisplay(highlighted)
@@ -24,8 +34,12 @@ class SideMenuCell: UITableViewCell, BaseAnimatableCell {
         setDisplay(selected)
     }
     
-    private func setDisplay(selected:Bool) {
-        
+    private func setDisplay(b:Bool) {
+        if b {
+            self.backgroundColor = UIColor(white: 0.9, alpha: 0.7)
+        } else {
+            self.backgroundColor = UIColor.clearColor()
+        }
     }
     
     func animateIn(delay: Double, indexPath: NSIndexPath) {
