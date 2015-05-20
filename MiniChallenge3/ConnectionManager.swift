@@ -30,15 +30,60 @@ class ConnectionManager
                 
                 array.append(obj[coluna as String]! as! String)
                 
-                
-            
-            
-                
             }
     
     }
     
         return array
+    }
+    
+    
+    
+    func readyRelation(classe:NSString, coluna:NSString, descricao:NSString) -> NSArray{
+//var relation = PFRelation().valueForKey(descricao as String)
+        
+        var query = PFQuery(className:classe as String)
+        var array = [String]()
+        
+        query.findObjectsInBackgroundWithBlock {
+            
+            (items: [AnyObject]?,erro: NSError?) -> Void in
+            
+            for obj in items!
+            {
+                if(obj["descricao"]!!.isEqual(descricao) == true)
+                {
+                    var relation = obj.relationForKey("perguntas")
+                    var cueri = relation.query()
+                    
+                    cueri!.findObjectsInBackgroundWithBlock {
+                        (items2: [AnyObject]?,erro: NSError?) -> Void in
+                        for obj2 in items2!{
+                            var aux = obj2["questao"]!
+                            println("B:\(aux!)")
+                            array.append(obj2["questao"]! as! String)
+                        }
+                
+                    }
+                }
+                
+                
+                
+                
+                
+                
+                
+             
+            }
+            
+        }
+        
+        
+        
+        
+        
+    return array
+        
     }
 
 
