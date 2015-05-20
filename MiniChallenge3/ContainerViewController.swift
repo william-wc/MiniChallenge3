@@ -128,38 +128,32 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, S
     /*
     Action / Event
     */
-    var allowPanGesture = false
-    var startingContact = CGPoint()
-    var savedPoint = CGPoint()
+    
     func handlePanGesture(recognizer:UIPanGestureRecognizer) {
         let gestureIsDraggingFromLeftToRight = recognizer.velocityInView(view).x > 0
-        
+
         switch(recognizer.state) {
         case .Began:
             if currentState == .Collapsed {
                 if gestureIsDraggingFromLeftToRight {
                     addLeftPanelViewController()
                 }
-                startingContact = recognizer.locationInView(view)
                 showShadowForCenterViewController(true)
             }
         case .Changed:
             if leftViewController != nil {
-//                var totalWidth = CGRectGetWidth(centerNavigationController.view.frame) - centerPanelExpandedOffset
-//                var px = (recognizer.locationInView(view).x - startingContact.x) / totalWidth
-//                println(px)
+                //limiting panning
+                var vx = (recognizer.view!.center.x + recognizer.translationInView(view).x)
+                vx = max(vx, 0.5 * view.frame.width)
+                vx = min(vx, 1.5 * view.frame.width - centerPanelExpandedOffset)
                 
+                recognizer.view!.center.x = vx
+                recognizer.setTranslation(CGPointZero, inView: view)
                 
-                let dt = recognizer.translationInView(view).x - savedPoint.x
-                savedPoint.x = recognizer.translationInView(view).x
-                println(dt)
-                recognizer.view!.center.x = recognizer.view!.center.x + dt
-                
-                
-//                recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
-//                recognizer.setTranslation(CGPointZero, inView: view)
-                
-                //leftViewController?.view.alpha = 0.5
+                //percentage of progress
+//                var px = recognizer.view!.center.x + recognizer.translationInView(view).x
+//                px -= 0.5 * view.frame.width
+//                px /= view.frame.width - centerPanelExpandedOffset
             }
             break
         case .Ended:
