@@ -34,7 +34,6 @@ class ContentViewController: CenterViewController {
         
         setupRootContainerView(0)
         println(self.navigationController?.viewControllers.count)
-        parse()
     }
     
     private func setupRootContainerView(index:Int) {
@@ -46,7 +45,7 @@ class ContentViewController: CenterViewController {
         toVC.didMoveToParentViewController(self)
         currentVC = toVC
     }
-        
+    
     func transitionViews(toVC:UIViewController) {
         if currentVC == toVC {
             return
@@ -93,9 +92,6 @@ class ContentViewController: CenterViewController {
     
     func parse(){
         var query = PFQuery(className:"Exatas")
-        
-        
-        
         query.findObjectsInBackgroundWithBlock {
             
             (items: [AnyObject]?,erro: NSError?) -> Void in

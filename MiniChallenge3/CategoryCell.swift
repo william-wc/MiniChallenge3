@@ -11,7 +11,6 @@ import UIKit
 class CategoryCell: UITableViewCell, BaseAnimatableCell {
     
     let anim_duration = 0.4
-
     let lineOffset:CGFloat = 10
     let highlightedColor = UIColor(red: 102/256.0, green: 185/256.0, blue: 165/256.0, alpha: 1.0)
     
