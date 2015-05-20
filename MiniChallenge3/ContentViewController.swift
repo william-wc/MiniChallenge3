@@ -46,12 +46,6 @@ class ContentViewController: CenterViewController {
         currentVC = toVC
     }
     
-    override func viewWillAppear(animated: Bool) {
-        //var array = [String]()
-        //var p = ConnectionManager()
-        //array = p.readyRelation("Exatas", coluna: "descricao", descricao: "Derivadas") as! [(String)]
-    }
-    
     func transitionViews(toVC:UIViewController) {
         if currentVC == toVC {
             return
