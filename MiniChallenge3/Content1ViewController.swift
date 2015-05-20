@@ -8,10 +8,39 @@
 
 import UIKit
 
-class Content1ViewController: UIViewController {
+class Content1ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    let CellIdentifierImage   = "cell_image"
+    let CellIdentifierText    = "cell_text"
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    
+    /*
+    DataSource / Delegate
+    */
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell:Content1Cell!
+        if indexPath.row % 2 == 0 {
+            cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifierImage) as! Content1Cell
+        } else {
+            cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifierText) as! Content1Cell
+        }
+        
+        return cell
     }
     
 }

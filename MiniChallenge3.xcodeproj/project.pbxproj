@@ -25,6 +25,8 @@
 		51628C211B05117B0039DA34 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51628C201B05117B0039DA34 /* Security.framework */; };
 		51628C231B0511840039DA34 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51628C221B0511840039DA34 /* QuartzCore.framework */; };
 		51628C261B0532DF0039DA34 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51628C251B0532DF0039DA34 /* CategoryCell.swift */; };
+		8F86BD6F1B0CFB7B00C39AD0 /* Content1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86BD6E1B0CFB7B00C39AD0 /* Content1Cell.swift */; };
+		8F86BD711B0CFEE700C39AD0 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86BD701B0CFEE600C39AD0 /* QuizViewController.swift */; };
 		8FC5FB041B08E73600231470 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5FB031B08E73600231470 /* ContentViewController.swift */; };
 		8FC5FB071B08EC7F00231470 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5FB061B08EC7F00231470 /* TransitionManager.swift */; };
 		8FDE841B1B011AFD008EB0CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE841A1B011AFD008EB0CA /* AppDelegate.swift */; };
@@ -82,6 +84,8 @@
 		51628C201B05117B0039DA34 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		51628C221B0511840039DA34 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		51628C251B0532DF0039DA34 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		8F86BD6E1B0CFB7B00C39AD0 /* Content1Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content1Cell.swift; sourceTree = "<group>"; };
+		8F86BD701B0CFEE600C39AD0 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		8FC5FB031B08E73600231470 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		8FC5FB061B08EC7F00231470 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		8FDE84151B011AFD008EB0CA /* MiniChallenge3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallenge3.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -258,6 +262,7 @@
 				8FDE846D1B0503E7008EB0CA /* SubjectHeader.swift */,
 				8FEF4BCC1B0A669C00AE9709 /* SideMenuCell.swift */,
 				8FEF4BCE1B0A6E4600AE9709 /* BaseAnimatableCell.swift */,
+				8F86BD6E1B0CFB7B00C39AD0 /* Content1Cell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				8FEF4BC61B0A565100AE9709 /* Content2ViewController.swift */,
 				8FEF4BC81B0A565A00AE9709 /* Content3ViewController.swift */,
 				8FEF4BCA1B0A5C9900AE9709 /* UserProfileViewController.swift */,
+				8F86BD701B0CFEE600C39AD0 /* QuizViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -402,12 +408,14 @@
 				8FDE84471B013111008EB0CA /* SubjectCell.swift in Sources */,
 				8FEF4BCD1B0A669C00AE9709 /* SideMenuCell.swift in Sources */,
 				8FC5FB041B08E73600231470 /* ContentViewController.swift in Sources */,
+				8F86BD711B0CFEE700C39AD0 /* QuizViewController.swift in Sources */,
 				8FDE84411B012E1A008EB0CA /* SubjectViewController.swift in Sources */,
 				51001B701B0CF167000F7BB1 /* Pergunta.swift in Sources */,
 				8FDE841E1B011AFD008EB0CA /* MiniChallenge3.xcdatamodeld in Sources */,
 				51628C1B1B0510FE0039DA34 /* MiniChallenge3-Bridging-Header.m in Sources */,
 				8FEF4BC91B0A565A00AE9709 /* Content3ViewController.swift in Sources */,
 				8FEF4BCB1B0A5C9900AE9709 /* UserProfileViewController.swift in Sources */,
+				8F86BD6F1B0CFB7B00C39AD0 /* Content1Cell.swift in Sources */,
 				8FDE84661B025F88008EB0CA /* ContainerViewController.swift in Sources */,
 				8FDE84681B025FD0008EB0CA /* SideMenuViewController.swift in Sources */,
 				8FDE841B1B011AFD008EB0CA /* AppDelegate.swift in Sources */,
