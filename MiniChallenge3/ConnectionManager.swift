@@ -36,7 +36,50 @@ class ConnectionManager
     
     
     
-    func readyRelation(classe:NSString, coluna:NSString, descricao:NSString) -> NSArray{
+    
+    
+    func readyMateria(classe:NSString)->NSArray{
+        
+        var query = PFQuery(className:classe as String)
+        var array = [Materia]()
+        var descricao:String!
+        var materia:String!
+        var linkM:String!
+        var linkV:String!
+        
+        
+        query.findObjectsInBackgroundWithBlock {
+            
+            (items: [AnyObject]?,erro: NSError?) -> Void in
+            
+            for i in 0 ... items!.count-1
+            {
+                var obj = items?[i] as! PFObject
+                
+                descricao = obj["descricao"] as! String
+                materia = obj["materia"] as! String
+                linkM = obj["linkMateria"] as! String
+                linkV = obj["linkVideo"] as! String
+                
+                
+                
+                var m: Materia
+                m = Materia(d: descricao, m: materia, lm: linkM, lv: linkV)
+                array.append(m)
+                
+            }
+            
+        }
+        
+        return array
+    }
+    
+    
+    
+    
+    
+    
+    func readyPergunta(classe:NSString,descricao:NSString) -> NSArray{
         
         var query = PFQuery(className:classe as String)
         var array = [Pergunta]()
