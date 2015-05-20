@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class pergunta: NSObject {
+class Pergunta{
     
     var titulo: String!
     var indexResp: Int!
