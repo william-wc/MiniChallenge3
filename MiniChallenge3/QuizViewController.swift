@@ -9,7 +9,11 @@
 import Foundation
 import UIKit
 
-class QuizViewController: UIViewController {
+class QuizViewController: CenterViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
     
     

@@ -8,10 +8,34 @@
 
 import UIKit
 
-class Content2ViewController: UIViewController {
+class Content2ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    let CellIdentifier = "cell"
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
+    
+    
+    /*
+    DataSource / Delegate
+    */
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as! Content2Cell
+        
+        return cell
+    }
+    
     
 }

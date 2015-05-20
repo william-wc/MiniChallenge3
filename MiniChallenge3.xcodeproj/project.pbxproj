@@ -26,6 +26,8 @@
 		51628C211B05117B0039DA34 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51628C201B05117B0039DA34 /* Security.framework */; };
 		51628C231B0511840039DA34 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51628C221B0511840039DA34 /* QuartzCore.framework */; };
 		51628C261B0532DF0039DA34 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51628C251B0532DF0039DA34 /* CategoryCell.swift */; };
+		8F6360471B0D01B500DEEA09 /* Content2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6360461B0D01B500DEEA09 /* Content2Cell.swift */; };
+		8F6360491B0D034300DEEA09 /* Content3Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6360481B0D034300DEEA09 /* Content3Cell.swift */; };
 		8F86BD6F1B0CFB7B00C39AD0 /* Content1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86BD6E1B0CFB7B00C39AD0 /* Content1Cell.swift */; };
 		8F86BD711B0CFEE700C39AD0 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86BD701B0CFEE600C39AD0 /* QuizViewController.swift */; };
 		8FC5FB041B08E73600231470 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5FB031B08E73600231470 /* ContentViewController.swift */; };
@@ -86,6 +88,8 @@
 		51628C201B05117B0039DA34 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		51628C221B0511840039DA34 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		51628C251B0532DF0039DA34 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		8F6360461B0D01B500DEEA09 /* Content2Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content2Cell.swift; sourceTree = "<group>"; };
+		8F6360481B0D034300DEEA09 /* Content3Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content3Cell.swift; sourceTree = "<group>"; };
 		8F86BD6E1B0CFB7B00C39AD0 /* Content1Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content1Cell.swift; sourceTree = "<group>"; };
 		8F86BD701B0CFEE600C39AD0 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		8FC5FB031B08E73600231470 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
@@ -266,6 +270,8 @@
 				8FEF4BCC1B0A669C00AE9709 /* SideMenuCell.swift */,
 				8FEF4BCE1B0A6E4600AE9709 /* BaseAnimatableCell.swift */,
 				8F86BD6E1B0CFB7B00C39AD0 /* Content1Cell.swift */,
+				8F6360461B0D01B500DEEA09 /* Content2Cell.swift */,
+				8F6360481B0D034300DEEA09 /* Content3Cell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -412,6 +418,7 @@
 				8FEF4BCD1B0A669C00AE9709 /* SideMenuCell.swift in Sources */,
 				8FC5FB041B08E73600231470 /* ContentViewController.swift in Sources */,
 				8F86BD711B0CFEE700C39AD0 /* QuizViewController.swift in Sources */,
+				8F6360491B0D034300DEEA09 /* Content3Cell.swift in Sources */,
 				8FDE84411B012E1A008EB0CA /* SubjectViewController.swift in Sources */,
 				51001B701B0CF167000F7BB1 /* Pergunta.swift in Sources */,
 				8FDE841E1B011AFD008EB0CA /* MiniChallenge3.xcdatamodeld in Sources */,
@@ -423,6 +430,7 @@
 				8FDE84661B025F88008EB0CA /* ContainerViewController.swift in Sources */,
 				8FDE84681B025FD0008EB0CA /* SideMenuViewController.swift in Sources */,
 				8FDE841B1B011AFD008EB0CA /* AppDelegate.swift in Sources */,
+				8F6360471B0D01B500DEEA09 /* Content2Cell.swift in Sources */,
 				51628C261B0532DF0039DA34 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -34,7 +34,6 @@ class ContentViewController: CenterViewController {
         
         setupRootContainerView(0)
         println(self.navigationController?.viewControllers.count)
-        parse()
     }
     
     private func setupRootContainerView(index:Int) {
@@ -48,13 +47,9 @@ class ContentViewController: CenterViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        var array = [String]()
-
-        var p = ConnectionManager()
-        
-       array = p.readyRelation("Exatas", coluna: "descricao", descricao: "Derivadas") as! [(String)]
-        
-        
+        //var array = [String]()
+        //var p = ConnectionManager()
+        //array = p.readyRelation("Exatas", coluna: "descricao", descricao: "Derivadas") as! [(String)]
     }
     
     func transitionViews(toVC:UIViewController) {
@@ -103,9 +98,6 @@ class ContentViewController: CenterViewController {
     
     func parse(){
         var query = PFQuery(className:"Exatas")
-        
-        
-        
         query.findObjectsInBackgroundWithBlock {
             
             (items: [AnyObject]?,erro: NSError?) -> Void in
