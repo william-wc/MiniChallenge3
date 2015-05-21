@@ -14,13 +14,13 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     private let anim_delay = 0.3
     private let anim_cell_delay = 0.13
     
-    let path = "www.ellog.com.br/bg.jpg"
-    
     @IBOutlet weak var tableView:UITableView!
     
-    var list:[Materia] = []
-    var data:AnyObject!
-    var didAppear:Bool = false
+    var SubjectKey: String!
+    
+    private var list:[Materia] = []
+    private var didAppear:Bool = false
+    
     var valueToPass:String!
     
     /*
@@ -74,6 +74,18 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
         var materia = self.list[indexPath.row]
         
         cell.name.text = materia.descricao
+        cell.iconImage.image = UIImage(named: "")
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            if let url = NSURL(string: "") {
+                if let data = NSData(contentsOfURL: url) {
+                    dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                        let image = UIImage(data: data)
+                        cell.iconImage.image = image
+                    })
+                }
+            }
+        })
         
         return cell
     }
