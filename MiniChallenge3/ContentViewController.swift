@@ -46,6 +46,7 @@ class ContentViewController: CenterViewController {
         currentVC = toVC
     }
     
+    
     func transitionViews(toVC:UIViewController) {
         if currentVC == toVC {
             return
