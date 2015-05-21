@@ -10,13 +10,25 @@ import UIKit
 
 class SubjectViewController: CenterViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
     
+    let SegueToSubjectCategory = "segue"
+    
+    private let ButtonNames = ["Matemática", "Física", "Química", "Português", "História", "Geografia"]
+    private let ButtonImages = [
+        UIImage(named: "subject mathemathics"),
+        UIImage(named: "subject physics"),
+        UIImage(named: "subject chemistry"),
+        UIImage(named: "subject language"),
+        UIImage(named: "subject history"),
+        UIImage(named: "subject geography")]
+    
     private let anim_delay = 0.5
     private let anim_cell_delay = 0.13
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var didAppear:Bool = false
-    var subjects:[AnyObject] = []
+    private var didAppear:Bool = false
+    private var subjects:[AnyObject] = []
+    private var selectedIndex = -1
     
     /*
     
@@ -46,6 +58,13 @@ class SubjectViewController: CenterViewController, UICollectionViewDataSource, U
         super.viewDidDisappear(animated)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == SegueToSubjectCategory {
+            let destination = segue.destinationViewController as! SubjectCategoryViewController
+            destination.SubjectKey = ConnectionManager.SubjectKeys[selectedIndex]
+        }
+    }
+    
     /*
     Actions
     */
@@ -62,15 +81,13 @@ class SubjectViewController: CenterViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return ButtonNames.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! SubjectCell
-        var idx = indexPath.row + 1
-        idx = min(idx, 4)
-        idx = max(idx, 0)
-        cell.image.image = UIImage(named: "subject \(idx)")
+        cell.text.text = ButtonNames[indexPath.row]
+        cell.image.image = ButtonImages[indexPath.row]
         return cell
     }
     
@@ -87,6 +104,11 @@ class SubjectViewController: CenterViewController, UICollectionViewDataSource, U
     func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SubjectCell
         cell.setHighlight(false)
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.selectedIndex = indexPath.row
+        self.performSegueWithIdentifier(SegueToSubjectCategory, sender: self)
     }
     
     func collectionViewHideCells() {
