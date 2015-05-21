@@ -37,5 +37,9 @@ class Content2ViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    func vide(){
+        var videoView = UIWebView(frame: self.view.bounds)
+        var videoURL
+    }
     
 }
