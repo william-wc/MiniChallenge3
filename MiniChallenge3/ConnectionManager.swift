@@ -11,6 +11,8 @@ import Foundation
 class ConnectionManager
 {
    
+    var file:AnyObject?
+    var image:UIImage!
     
     func readyOneCollOfOneTable(classe:NSString, coluna:NSString)->NSArray{
         
@@ -24,19 +26,11 @@ class ConnectionManager
             for i in 0 ... items!.count-1
             {
               var obj = items?[i] as! PFObject
-                
                 array.append(obj[coluna as String]! as! String)
-                
             }
-    
     }
-    
         return array
     }
-    
-    
-    
-    
     
     func readyMateria(classe:NSString)->NSArray{
         
@@ -74,11 +68,6 @@ class ConnectionManager
         return array
     }
     
-    
-    
-    
-    
-    
     func readyPergunta(classe:NSString,descricao:NSString) -> NSArray{
         
         var query = PFQuery(className:classe as String)
@@ -111,34 +100,35 @@ class ConnectionManager
                             p = Pergunta(t: quest, i: index, alt: opcoes, d: resp)
                             array.append(p)
                             
-                            
-                            
-
-                            
-                            
                         }
                 
                     }
                 }
-                
-                
-                
-                
-                
-                
-                
              
             }
             
         }
-        
-        
-        
-        
-        
     return array
-        
     }
+    
+    func readyImage(classe:NSString,descricao:NSString, onComplete:((data:NSData?, error:NSError?)->Void)?) -> Void{
+      var query = PFQuery(className:classe as String)
+        
+        query.whereKey(classe as String, containsString: descricao as String)
+        
+        query.findObjectsInBackgroundWithBlock
+        {
+            (items: [AnyObject]?,erro: NSError?) -> Void in
+        
+            var popey = items?.first as! PFObject
+            
+            var pratofeitofile = popey["img"] as! PFFile
+            
+            pratofeitofile.getDataInBackgroundWithBlock({ (data, error) -> Void in
+                self.image = UIImage(data: data!)
+                onComplete?(data: data, error: error)
 
-
+            })
+        }
+    }
 }
