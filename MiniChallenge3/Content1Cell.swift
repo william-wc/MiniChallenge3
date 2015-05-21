@@ -11,8 +11,8 @@ import UIKit
 
 class Content1Cell: UITableViewCell, BaseAnimatableCell {
     
-    
-    
+    @IBOutlet weak var contentImage:UIImageView?
+    @IBOutlet weak var contentText:UILabel?
     
     func animateIn(delay: Double, indexPath: NSIndexPath) {
         
