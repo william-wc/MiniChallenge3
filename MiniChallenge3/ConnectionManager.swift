@@ -111,10 +111,10 @@ class ConnectionManager
     return array
     }
     
-    func readyImage(classe:NSString,descricao:NSString, onComplete:((data:NSData?, error:NSError?)->Void)?) -> Void{
+    func readyImage(classe:NSString,descricao:NSString,materia:NSString,obj:Materia, onComplete:((data:NSData?, error:NSError?)->Void)?) -> Void{
       var query = PFQuery(className:classe as String)
         
-        query.whereKey(classe as String, containsString: descricao as String)
+        query.whereKey(descricao as String, containsString: materia as String)
         
         query.findObjectsInBackgroundWithBlock
         {
@@ -125,7 +125,7 @@ class ConnectionManager
             var pratofeitofile = popey["img"] as! PFFile
             
             pratofeitofile.getDataInBackgroundWithBlock({ (data, error) -> Void in
-                self.image = UIImage(data: data!)
+                obj.setImage(UIImage(data: data!)!)
                 onComplete?(data: data, error: error)
 
             })
