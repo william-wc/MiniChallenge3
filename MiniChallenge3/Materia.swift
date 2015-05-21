@@ -23,8 +23,4 @@ class Materia {
         linkMateria = lm
         linkVideo = lv
     }
-    
-    func setImage(img:UIImage){
-        imagem = img
-    }
 }
