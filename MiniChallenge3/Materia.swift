@@ -11,11 +11,11 @@ import Foundation
 class Materia {
     
 
-var descricao: String!
-var materia: String!
-var linkMateria: String!
-var linkVideo: String!
-var imagem: UIImage!
+    var descricao: String!
+    var materia: String!
+    var linkMateria: String!
+    var linkVideo: String!
+    var imagem: UIImage!
 
     init(d:String,m:String,lm:String,lv:String){
         descricao = d

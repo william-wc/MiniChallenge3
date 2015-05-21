@@ -10,11 +10,13 @@ import Foundation
 
 class ConnectionManager
 {
-   
-    var file:AnyObject?
-    var image:UIImage!
     
-    func readyOneCollOfOneTable(classe:NSString, coluna:NSString)->NSArray{
+    static let subjects = ["Exatas","Exatas","Exatas","Exatas","Exatas","Exatas"]
+   
+    static var file:AnyObject?
+    static var image:UIImage!
+    
+    class func readyOneCollOfOneTable(classe:NSString, coluna:NSString)->NSArray{
         
         var query = PFQuery(className:classe as String)
         var array = [String]()
@@ -32,8 +34,7 @@ class ConnectionManager
         return array
     }
     
-    func readyMateria(classe:NSString)->NSArray{
-        
+    class func readyMateria(classe:NSString, onComplete:([Materia])->Void) {
         var query = PFQuery(className:classe as String)
         var array = [Materia]()
         var descricao:String!
@@ -55,20 +56,16 @@ class ConnectionManager
                 linkM = obj["linkMateria"] as! String
                 linkV = obj["linkVideo"] as! String
                 
-                
-                
                 var m: Materia
                 m = Materia(d: descricao, m: materia, lm: linkM, lv: linkV)
                 array.append(m)
-                
             }
             
+            onComplete(array)
         }
-        
-        return array
     }
     
-    func readyPergunta(classe:NSString,descricao:NSString) -> NSArray{
+    class func readyPergunta(classe:NSString,descricao:NSString) -> NSArray{
         
         var query = PFQuery(className:classe as String)
         var array = [Pergunta]()
@@ -111,7 +108,7 @@ class ConnectionManager
     return array
     }
     
-    func readyImage(classe:NSString,descricao:NSString,materia:NSString,obj:Materia, onComplete:((data:NSData?, error:NSError?)->Void)?) -> Void{
+    class func readyImage(classe:NSString,descricao:NSString,materia:NSString,obj:Materia, onComplete:((data:NSData?, error:NSError?)->Void)?) -> Void{
       var query = PFQuery(className:classe as String)
         
         query.whereKey(descricao as String, containsString: materia as String)
@@ -125,7 +122,8 @@ class ConnectionManager
             var pratofeitofile = popey["img"] as! PFFile
             
             pratofeitofile.getDataInBackgroundWithBlock({ (data, error) -> Void in
-                obj.setImage(UIImage(data: data!)!)
+                obj.imagem = UIImage(data: data!)
+                
                 onComplete?(data: data, error: error)
 
             })

@@ -55,6 +55,7 @@
 		8FEF4BCB1B0A5C9900AE9709 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF4BCA1B0A5C9900AE9709 /* UserProfileViewController.swift */; };
 		8FEF4BCD1B0A669C00AE9709 /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF4BCC1B0A669C00AE9709 /* SideMenuCell.swift */; };
 		8FEF4BCF1B0A6E4600AE9709 /* BaseAnimatableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF4BCE1B0A6E4600AE9709 /* BaseAnimatableCell.swift */; };
+		D448A9361B0E527C00EBEB90 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D448A9351B0E527C00EBEB90 /* AnswerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		8FEF4BCA1B0A5C9900AE9709 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		8FEF4BCC1B0A669C00AE9709 /* SideMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		8FEF4BCE1B0A6E4600AE9709 /* BaseAnimatableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAnimatableCell.swift; sourceTree = "<group>"; };
+		D448A9351B0E527C00EBEB90 /* AnswerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +291,7 @@
 				8FEF4BC81B0A565A00AE9709 /* Content3ViewController.swift */,
 				8FEF4BCA1B0A5C9900AE9709 /* UserProfileViewController.swift */,
 				8F86BD701B0CFEE600C39AD0 /* QuizViewController.swift */,
+				D448A9351B0E527C00EBEB90 /* AnswerViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				8FEF4BCF1B0A6E4600AE9709 /* BaseAnimatableCell.swift in Sources */,
 				8FC5FB071B08EC7F00231470 /* TransitionManager.swift in Sources */,
 				8FDE84471B013111008EB0CA /* SubjectCell.swift in Sources */,
+				D448A9361B0E527C00EBEB90 /* AnswerViewController.swift in Sources */,
 				8FEF4BCD1B0A669C00AE9709 /* SideMenuCell.swift in Sources */,
 				8FC5FB041B08E73600231470 /* ContentViewController.swift in Sources */,
 				8F86BD711B0CFEE700C39AD0 /* QuizViewController.swift in Sources */,

@@ -14,9 +14,11 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     private let anim_delay = 0.3
     private let anim_cell_delay = 0.13
     
+    let path = "www.ellog.com.br/bg.jpg"
+    
     @IBOutlet weak var tableView:UITableView!
     
-    var list = [String]()
+    var list:[Materia] = []
     var data:AnyObject!
     var didAppear:Bool = false
     var valueToPass:String!
@@ -27,7 +29,10 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: CGRectZero)
-        self.tableSize()
+        ConnectionManager.readyMateria("Exatas", onComplete: { (materias) -> Void in
+            self.list = materias
+            self.tableView.reloadData()
+        })
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -54,23 +59,6 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     }
     
     /*
-    
-    */
-    func tableSize() {
-        var query = PFQuery(className:"Exatas")
-        
-        query.findObjectsInBackgroundWithBlock {
-            (items: [AnyObject]?,erro: NSError?) -> Void in
-            
-            for i in 0 ... items!.count-1 {
-                var obj = items![i] as! PFObject
-                self.list.append(obj["descricao"]! as! String)
-            }
-            self.tableView.reloadData()
-        }
-    }
-    
-    /*
     Data Source / Delegate
     */
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -83,9 +71,9 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("cell") as! CategoryCell
-        var valor = self.list[indexPath.row]
+        var materia = self.list[indexPath.row]
         
-        cell.name.text = valor
+        cell.name.text = materia.descricao
         
         return cell
     }
