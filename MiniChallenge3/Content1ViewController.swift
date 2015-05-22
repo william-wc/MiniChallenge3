@@ -35,13 +35,11 @@ class Content1ViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:Content1Cell!
+        let cellIdentifier = CellIdentifierText
+        let cell:Content1Cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! Content1Cell
+        let d = data[indexPath.row]
         
-        if indexPath.row % 2 == 0 {
-            cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifierImage) as! Content1Cell
-        } else {
-            cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifierText) as! Content1Cell
-        }
+        cell.contentText?.text = d
         
         return cell
     }

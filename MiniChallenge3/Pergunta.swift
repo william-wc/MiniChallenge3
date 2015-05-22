@@ -11,7 +11,7 @@ class Pergunta{
     
     var titulo: String!
     var indexResp: Int!
-    var alternativas = [String]()
+    var alternativas:[Int]!
     var descriResp: String!
     
     
@@ -19,7 +19,7 @@ class Pergunta{
     init(t:String, i:Int, alt:NSArray, d:String) {
         titulo = t
         indexResp = i
-        alternativas = alt as! [(String)]
+        alternativas = alt as! [(Int)]
         descriResp = d
     }
     

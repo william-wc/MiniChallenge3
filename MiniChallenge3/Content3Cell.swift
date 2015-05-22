@@ -10,7 +10,7 @@ import UIKit
 
 class Content3Cell: UITableViewCell, BaseAnimatableCell {
     
-    
+    @IBOutlet weak var txtLabel:UILabel!
     
     func animateIn(delay: Double, indexPath: NSIndexPath) {
         

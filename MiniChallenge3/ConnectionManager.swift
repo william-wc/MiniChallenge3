@@ -40,60 +40,42 @@ class ConnectionManager
     class func readyMateria(classe:NSString, onComplete:([Materia])->Void) {
         var query = PFQuery(className:classe as String)
         var array = [Materia]()
-        var descricao:String!
-        var materia:[String]!
-        var linkM:[String]!
-        var linkV:[String]!
-        var imgURL:String!
-        var cont = 0
         
         query.findObjectsInBackgroundWithBlock {
             
             (items: [AnyObject]?,erro: NSError?) -> Void in
             
+            var cont = 0
+            
             for i in 0 ... items!.count-1
             {
-                var obj = items?[i] as! PFObject
+                let obj = items?[i] as! PFObject
+                let m = Materia()
+                m.descricao   = obj["descricao"] as? String
+                m.materia     = obj["materia"] as? [String]
+                m.linkMateria = (obj["linkMateria"] as? [String])!
+                m.linkVideo   = (obj["linkVideo"] as? [String])!
+                m.imagemURL   = obj["linkImg"] as? String
                 
-                descricao = obj["descricao"] as? String
-                materia = obj["materia"] as? [String]
-                linkM = (obj["linkMateria"] as? [String])!
-                linkV = (obj["linkVideo"] as? [String])!
-                imgURL = obj["linkImg"] as? String
-                self.readyPergunta(classe, descricao: descricao, onComplete: { (pergunta) -> Void in
-                    var m = Materia(
-                        descricao: descricao,
-                        materia: materia,
-                        linkMateria: linkM,
-                        linkVideo: linkV,
-                        imagemURL: imgURL,
-                        pergunta:pergunta)
-                    
-                        array.append(m)
-                        cont++
-                    
-                    if(cont == items!.count-1){
+                array.append(m)
+                
+                self.readyPergunta(classe, descricao: m.descricao, onComplete: { (pergunta) -> Void in
+                    m.perguntas = pergunta
+                    cont++
+                    if(cont >= items!.count) {
                         onComplete(array)
-
                     }
-                    
                 })
-                
-                
-             
             }
-            
-            
         }
     }
     
     class func readyPergunta(classe:NSString,descricao:NSString, onComplete:([Pergunta])->Void) {
-        
         var query = PFQuery(className:classe as String)
         var array = [Pergunta]()
         var quest:String!
         var index:Int!
-        var opcoes:[String]!
+        var opcoes:[Int]!
         var resp:String!
         
         query.findObjectsInBackgroundWithBlock {
@@ -112,7 +94,7 @@ class ConnectionManager
                         for obj2 in items2!{
                           quest = obj2["questao"] as! String
                           index = obj2["index"] as! Int
-                          opcoes = obj2["opcoes"] as! [String]
+                          opcoes = obj2["opcoes"] as! [Int]
                           resp = obj2["resolucao"]! as! String
                             
                             var p: Pergunta
