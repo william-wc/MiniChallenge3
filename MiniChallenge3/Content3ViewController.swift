@@ -14,6 +14,8 @@ class Content3ViewController: UIViewController , UITableViewDelegate, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     
+    var data:[Pergunta] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,11 +30,14 @@ class Content3ViewController: UIViewController , UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return data.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as! Content3Cell
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as! Content3Cell
+        let d = data[indexPath.row]
+        
+        cell.txtLabel.text = d.titulo
         
         return cell
     }

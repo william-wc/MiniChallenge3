@@ -21,15 +21,14 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     private var list:[Materia] = []
     private var didAppear:Bool = false
     
-    var valueToPass:String!
-    
     /*
     
     */
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: CGRectZero)
-        ConnectionManager.readyMateria("Exatas", onComplete: { (materias) -> Void in
+        
+        ConnectionManager.readyMateria(self.SubjectKey, onComplete: { (materias) -> Void in
             self.list = materias
             self.tableView.reloadData()
         })
@@ -53,8 +52,9 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segue" {
-            var viewController = segue.destinationViewController as? ContentViewController
-            viewController!.mudar = valueToPass
+            let indexPath = tableView.indexPathForSelectedRow()
+            let destination = segue.destinationViewController as! ContentViewController
+            destination.content = list[indexPath!.row]
         }
     }
     
@@ -91,12 +91,6 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("Vc selecionou \(indexPath.row)")
-        let indexPath = tableView.indexPathForSelectedRow()
-        let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! CategoryCell
-        println("\(currentCell)")
-        valueToPass = currentCell.name!.text
-        
         performSegueWithIdentifier("segue", sender: self)
     }
     

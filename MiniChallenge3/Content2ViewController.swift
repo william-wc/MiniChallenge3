@@ -14,6 +14,8 @@ class Content2ViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
+    var data:[String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -27,7 +29,7 @@ class Content2ViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return data.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

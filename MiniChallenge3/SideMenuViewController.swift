@@ -60,5 +60,4 @@ class SideMenuViewController: UITableViewController, UITableViewDataSource, UITa
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         delegate?.itemSelected?(indexPath.row)
     }
-    
 }
