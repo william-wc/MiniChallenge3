@@ -90,29 +90,6 @@ class ContentViewController: CenterViewController {
         
     }
     
-    func parse(){
-        var query = PFQuery(className:"Exatas")
-        query.findObjectsInBackgroundWithBlock {
-            
-            (items: [AnyObject]?,erro: NSError?) -> Void in
-            
-            var y = items?[0] as! PFObject
-            
-            for i in 0 ... items!.count-1
-                
-            {
-                
-                var obj = items![i] as! PFObject
-                
-                if((obj["descricao"]?.isEqual(self.mudar)) == true){
-                    var p = obj["materia"]
-                    println("\(p!)")
-                }
-            }
-        }
-        
-    }
-    
     /*
     Action / Event
     */

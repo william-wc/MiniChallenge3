@@ -21,7 +21,4 @@ class Materia {
         descricao = d
         materia = m
     }
-    
-    
-    
 }
