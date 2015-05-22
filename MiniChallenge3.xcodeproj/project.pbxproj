@@ -28,6 +28,8 @@
 		51628C261B0532DF0039DA34 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51628C251B0532DF0039DA34 /* CategoryCell.swift */; };
 		8F6360471B0D01B500DEEA09 /* Content2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6360461B0D01B500DEEA09 /* Content2Cell.swift */; };
 		8F6360491B0D034300DEEA09 /* Content3Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6360481B0D034300DEEA09 /* Content3Cell.swift */; };
+		8F6360B01B0F98A500DEEA09 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6360AF1B0F98A500DEEA09 /* SwiftyJSON.swift */; };
+		8F6360B21B0F991400DEEA09 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6360B11B0F991400DEEA09 /* Config.swift */; };
 		8F86BD6F1B0CFB7B00C39AD0 /* Content1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86BD6E1B0CFB7B00C39AD0 /* Content1Cell.swift */; };
 		8F86BD711B0CFEE700C39AD0 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86BD701B0CFEE600C39AD0 /* QuizViewController.swift */; };
 		8FC5FB041B08E73600231470 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5FB031B08E73600231470 /* ContentViewController.swift */; };
@@ -91,6 +93,8 @@
 		51628C251B0532DF0039DA34 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		8F6360461B0D01B500DEEA09 /* Content2Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content2Cell.swift; sourceTree = "<group>"; };
 		8F6360481B0D034300DEEA09 /* Content3Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content3Cell.swift; sourceTree = "<group>"; };
+		8F6360AF1B0F98A500DEEA09 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		8F6360B11B0F991400DEEA09 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		8F86BD6E1B0CFB7B00C39AD0 /* Content1Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content1Cell.swift; sourceTree = "<group>"; };
 		8F86BD701B0CFEE600C39AD0 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		8FC5FB031B08E73600231470 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +184,14 @@
 			name = FrameWork;
 			sourceTree = "<group>";
 		};
+		8F6360AE1B0F989A00DEEA09 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8F6360AF1B0F98A500DEEA09 /* SwiftyJSON.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		8FC5FB051B08EC7100231470 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +224,7 @@
 		8FDE84171B011AFD008EB0CA /* MiniChallenge3 */ = {
 			isa = PBXGroup;
 			children = (
+				8F6360AE1B0F989A00DEEA09 /* Utils */,
 				8FC5FB051B08EC7100231470 /* Managers */,
 				8FDE84641B025F7A008EB0CA /* Menu */,
 				8FDE843F1B012B64008EB0CA /* Controllers */,
@@ -259,6 +272,7 @@
 			children = (
 				51001B6F1B0CF167000F7BB1 /* Pergunta.swift */,
 				5142BDC91B0CFC88005375C6 /* Materia.swift */,
+				8F6360B11B0F991400DEEA09 /* Config.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -424,6 +438,7 @@
 				8F86BD711B0CFEE700C39AD0 /* QuizViewController.swift in Sources */,
 				8F6360491B0D034300DEEA09 /* Content3Cell.swift in Sources */,
 				8FDE84411B012E1A008EB0CA /* SubjectViewController.swift in Sources */,
+				8F6360B01B0F98A500DEEA09 /* SwiftyJSON.swift in Sources */,
 				51001B701B0CF167000F7BB1 /* Pergunta.swift in Sources */,
 				8FDE841E1B011AFD008EB0CA /* MiniChallenge3.xcdatamodeld in Sources */,
 				5142BDCA1B0CFC88005375C6 /* Materia.swift in Sources */,
@@ -434,6 +449,7 @@
 				8FDE84661B025F88008EB0CA /* ContainerViewController.swift in Sources */,
 				8FDE84681B025FD0008EB0CA /* SideMenuViewController.swift in Sources */,
 				8FDE841B1B011AFD008EB0CA /* AppDelegate.swift in Sources */,
+				8F6360B21B0F991400DEEA09 /* Config.swift in Sources */,
 				8F6360471B0D01B500DEEA09 /* Content2Cell.swift in Sources */,
 				51628C261B0532DF0039DA34 /* CategoryCell.swift in Sources */,
 			);
