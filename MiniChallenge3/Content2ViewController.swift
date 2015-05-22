@@ -32,7 +32,9 @@ class Content2ViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as! Content2Cell
-        var embedURL = "<iframe width=\"160\" height=\"90\" src=\"https://www.youtube.com/embed/mQSVKCmeAQE?list=PLf1lowbdbFIAURvpD8Qy8PqwrMjwx0N64\" frameborder=\"0\" allowfullscreen></iframe>"
+        var embedURL = "<iframe width=\"320\" height=\"180\" src=\"https://www.youtube.com/embed/mQSVKCmeAQE?list=PLf1lowbdbFIAURvpD8Qy8PqwrMjwx0N64\" frameborder=\"0\" allowfullscreen></iframe>"
+        cell.webVideo.scrollView.scrollEnabled = false
+        cell.webVideo.scrollView.bounces = false
         cell.webVideo.loadHTMLString(embedURL, baseURL: nil)
         cell.topics.text = "Derivadas"
         return cell
