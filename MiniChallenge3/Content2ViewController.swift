@@ -33,13 +33,24 @@ class Content2ViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as! Content2Cell
-        
         return cell
     }
     
-    func vide(){
-        var videoView = UIWebView(frame: self.view.bounds)
-        var videoURL
-    }
+//    func vide(){
+//        var videoView = UIWebView(frame: self.view.bounds)
+//        var videoURL = NSURL(fileURLWithPath:"www.youtube.com/watch?v=MyF7alu35FQ")
+//        
+//        var youtubeVideoHTML = "<!DOCTYPE html><html><head><style>body{margin:0px 0px 0px 0px; background:#1111}</style></head> <body> <div id=\"player\"></div> <script> var tag = document.createElement('script'); tag.src = \"http://www.youtube.com/player_api\"; var firstScriptTag = document.getElementsByTagName('script')[0]; firstScriptTag.parentNode.insertBefore(tag, firstScriptTag); var player; function onYouTubePlayerAPIReady() { player = new YT.Player('player', { width:'0.0', height:'0.0', videoId:'\(videoURL)', events: { 'onReady': onPlayerReady, 'onStateChange': onPlayerStateChange } });} function onPlayerReady(event) { event.target.playVideo(); } function onPlayerStateChange(event) {if(event.data === 0) {   event.target.destroy(); }}  </script> </body> </html>"
+//        
+//        videoView.scalesPageToFit = false
+//        videoView.mediaPlaybackRequiresUserAction = false
+//        videoView.opaque = false
+//        
+//        videoView.loadHTMLString(youtubeVideoHTML, baseURL: videoURL)
+//        
+//        view .addSubview(videoView)
+//        
+//        
+//    }
     
 }

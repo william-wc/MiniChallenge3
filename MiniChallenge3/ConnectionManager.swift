@@ -40,9 +40,9 @@ class ConnectionManager
         var array = [Materia]()
         var descricao:String!
         var materia:String!
-        var linkM:String!
-        var linkV:String!
-        
+        var linkM = [String]()
+        var linkV = [String]()
+        var imgURL:String!
         
         query.findObjectsInBackgroundWithBlock {
             
@@ -52,14 +52,18 @@ class ConnectionManager
             {
                 var obj = items?[i] as! PFObject
                 
-                descricao = obj["descricao"] as! String
-                materia = obj["materia"] as! String
-                linkM = obj["linkMateria"] as! String
-                linkV = obj["linkVideo"] as! String
-                
+                descricao = obj["descricao"] as? String
+                materia = obj["materia"] as? String
+                linkM = (obj["linkMateria"] as? [String])!
+                linkV = (obj["linkVideo"] as? [String])!
+                imgURL = obj["linkImg"] as? String
+             
                 var m: Materia
-                m = Materia(d: descricao, m: materia, lm: linkM, lv: linkV)
-                array.append(m)
+             m = Materia(d: descricao, m: materia)
+             m.linkMateria = linkM
+             m.linkVideo = linkV
+             m.imagemURL = imgURL
+             array.append(m)
             }
             
             onComplete(array)
@@ -123,9 +127,7 @@ class ConnectionManager
             var pratofeitofile = popey["img"] as! PFFile
             
             pratofeitofile.getDataInBackgroundWithBlock({ (data, error) -> Void in
-                obj.imagem = UIImage(data: data!)
-                
-                onComplete?(data: data, error: error)
+            onComplete?(data: data, error: error)
 
             })
         }

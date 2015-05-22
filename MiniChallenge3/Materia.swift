@@ -15,7 +15,7 @@ class Materia {
     var materia: String!
     var linkMateria = [String]()
     var linkVideo = [String]()
-    var imagem = [String]()
+    var imagemURL:String!
 
     init(d:String,m:String){
         descricao = d
