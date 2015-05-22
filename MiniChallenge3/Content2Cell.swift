@@ -11,6 +11,9 @@ import UIKit
 class Content2Cell: UITableViewCell, BaseAnimatableCell {
     
     
+    @IBOutlet var webVideo: UIWebView!
+    
+    @IBOutlet var topics: UILabel!
     
     func animateIn(delay: Double, indexPath: NSIndexPath) {
         

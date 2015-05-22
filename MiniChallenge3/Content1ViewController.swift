@@ -15,6 +15,8 @@ class Content1ViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
+    var data:[String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,11 +31,12 @@ class Content1ViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return data.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:Content1Cell!
+        
         if indexPath.row % 2 == 0 {
             cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifierImage) as! Content1Cell
         } else {

@@ -15,10 +15,9 @@ class ContentViewController: CenterViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var container: UIView!
     
-    var mudar:String!
+    var content:Materia!
     private var views:[UIViewController]!
     private var currentVC:UIViewController!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +29,11 @@ class ContentViewController: CenterViewController {
             storyboard.instantiateViewControllerWithIdentifier("Content3ViewController") as! UIViewController
         ]
         
-        println(self.navigationController?.viewControllers.count)
+        (views[0] as! Content1ViewController).data = content.materia
+        (views[1] as! Content2ViewController).data = content.linkVideo
+        (views[2] as! Content3ViewController).data = []
         
         setupRootContainerView(0)
-        println(self.navigationController?.viewControllers.count)
     }
     
     private func setupRootContainerView(index:Int) {

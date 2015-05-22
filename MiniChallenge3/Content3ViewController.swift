@@ -14,6 +14,8 @@ class Content3ViewController: UIViewController , UITableViewDelegate, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     
+    var data:[String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +30,7 @@ class Content3ViewController: UIViewController , UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return data.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

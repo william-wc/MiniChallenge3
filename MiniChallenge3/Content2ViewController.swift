@@ -14,9 +14,10 @@ class Content2ViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
+    var data:[String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     
@@ -28,13 +29,17 @@ class Content2ViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return data.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as! Content2Cell
+        var embedURL = "<iframe width=\"160\" height=\"90\" src=\"https://www.youtube.com/embed/mQSVKCmeAQE?list=PLf1lowbdbFIAURvpD8Qy8PqwrMjwx0N64\" frameborder=\"0\" allowfullscreen></iframe>"
+        cell.webVideo.loadHTMLString(embedURL, baseURL: nil)
+        cell.topics.text = "Derivadas"
         return cell
     }
+
     
 //    func vide(){
 //        var videoView = UIWebView(frame: self.view.bounds)
