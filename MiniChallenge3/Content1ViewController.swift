@@ -38,7 +38,7 @@ class Content1ViewController: UIViewController, UITableViewDelegate, UITableView
         let cellIdentifier = CellIdentifierText
         let cell:Content1Cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! Content1Cell
         let d = data[indexPath.row]
-        
+        println("\(cell.contentText) \(cell.contentImage)")
         cell.contentText?.text = d
         
         return cell
