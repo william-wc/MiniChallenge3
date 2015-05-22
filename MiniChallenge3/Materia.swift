@@ -13,14 +13,15 @@ class Materia {
 
     var descricao: String!
     var materia: String!
-    var linkMateria: String!
-    var linkVideo: String!
-    var imagem: UIImage!
+    var linkMateria = [String]()
+    var linkVideo = [String]()
+    var imagemURL:String!
 
-    init(d:String,m:String,lm:String,lv:String){
+    init(d:String,m:String){
         descricao = d
         materia = m
-        linkMateria = lm
-        linkVideo = lv
     }
+    
+    
+    
 }
