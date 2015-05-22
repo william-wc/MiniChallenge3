@@ -12,15 +12,6 @@ class SubjectViewController: CenterViewController, UICollectionViewDataSource, U
     
     let SegueToSubjectCategory = "segue"
     
-    private let ButtonNames = ["Matemática", "Física", "Química", "Português", "História", "Geografia"]
-    private let ButtonImages = [
-        UIImage(named: "subject mathemathics"),
-        UIImage(named: "subject physics"),
-        UIImage(named: "subject chemistry"),
-        UIImage(named: "subject language"),
-        UIImage(named: "subject history"),
-        UIImage(named: "subject geography")]
-    
     private let anim_delay = 0.5
     private let anim_cell_delay = 0.13
     
@@ -61,7 +52,7 @@ class SubjectViewController: CenterViewController, UICollectionViewDataSource, U
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == SegueToSubjectCategory {
             let destination = segue.destinationViewController as! SubjectCategoryViewController
-            destination.SubjectKey = ConnectionManager.SubjectKeys[selectedIndex]
+            destination.SubjectKey = Config.SubjectKeys[selectedIndex]
         }
     }
     
@@ -81,13 +72,13 @@ class SubjectViewController: CenterViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ButtonNames.count
+        return Config.ButtonNames.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! SubjectCell
-        cell.text.text = ButtonNames[indexPath.row]
-        cell.image.image = ButtonImages[indexPath.row]
+        cell.text.text = Config.ButtonNames[indexPath.row]
+        cell.image.image = Config.ButtonImages[indexPath.row]
         return cell
     }
     

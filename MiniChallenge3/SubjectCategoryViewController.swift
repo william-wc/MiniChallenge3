@@ -74,7 +74,7 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
         var materia = self.list[indexPath.row]
         
         cell.name.text = materia.descricao
-        cell.iconImage.image = UIImage(named: "")
+        cell.iconImage.image = Config.DefaultCategoryImage
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             if let url = NSURL(string: "") {
