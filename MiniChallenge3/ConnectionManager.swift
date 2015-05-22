@@ -41,9 +41,9 @@ class ConnectionManager
         var query = PFQuery(className:classe as String)
         var array = [Materia]()
         var descricao:String!
-        var materia:String!
-        var linkM = [String]()
-        var linkV = [String]()
+        var materia:[String]!
+        var linkM:[String]!
+        var linkV:[String]!
         var imgURL:String!
         
         query.findObjectsInBackgroundWithBlock {
@@ -55,16 +55,18 @@ class ConnectionManager
                 var obj = items?[i] as! PFObject
                 
                 descricao = obj["descricao"] as? String
-                materia = obj["materia"] as? String
+                materia = obj["materia"] as? [String]
                 linkM = (obj["linkMateria"] as? [String])!
                 linkV = (obj["linkVideo"] as? [String])!
                 imgURL = obj["linkImg"] as? String
              
-                var m: Materia
-             m = Materia(d: descricao, m: materia)
-             m.linkMateria = linkM
-             m.linkVideo = linkV
-             m.imagemURL = imgURL
+                
+             var m = Materia(
+                    descricao: descricao,
+                    materia: materia,
+                    linkMateria: linkM,
+                    linkVideo: linkV,
+                    imagemURL: imgURL)
              array.append(m)
             }
             

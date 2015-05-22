@@ -11,14 +11,17 @@ import Foundation
 class Materia {
     
 
-    var descricao: String!
-    var materia: String!
-    var linkMateria = [String]()
-    var linkVideo = [String]()
-    var imagemURL:String!
+    var descricao   : String!
+    var materia     : [String]!
+    var linkMateria : [String]!
+    var linkVideo   : [String]!
+    var imagemURL   : String!
 
-    init(d:String,m:String){
-        descricao = d
-        materia = m
+    init(descricao:String, materia:[String], linkMateria:[String], linkVideo:[String], imagemURL:String) {
+        self.descricao      = descricao
+        self.materia        = materia
+        self.linkMateria    = linkMateria
+        self.linkVideo      = linkVideo
+        self.imagemURL      = imagemURL
     }
 }
