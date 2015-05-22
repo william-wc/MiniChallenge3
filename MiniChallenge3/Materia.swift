@@ -16,12 +16,16 @@ class Materia {
     var linkMateria : [String]!
     var linkVideo   : [String]!
     var imagemURL   : String!
+    var perguntas   : [Pergunta]!
 
-    init(descricao:String, materia:[String], linkMateria:[String], linkVideo:[String], imagemURL:String) {
+
+    init(descricao:String, materia:[String], linkMateria:[String], linkVideo:[String], imagemURL:String, pergunta:[Pergunta]) {
         self.descricao      = descricao
         self.materia        = materia
         self.linkMateria    = linkMateria
         self.linkVideo      = linkVideo
         self.imagemURL      = imagemURL
+        self.perguntas      = pergunta
+
     }
 }

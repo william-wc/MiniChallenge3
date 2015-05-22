@@ -45,6 +45,7 @@ class ConnectionManager
         var linkM:[String]!
         var linkV:[String]!
         var imgURL:String!
+        var cont = 0
         
         query.findObjectsInBackgroundWithBlock {
             
@@ -59,22 +60,34 @@ class ConnectionManager
                 linkM = (obj["linkMateria"] as? [String])!
                 linkV = (obj["linkVideo"] as? [String])!
                 imgURL = obj["linkImg"] as? String
-             
+                self.readyPergunta(classe, descricao: descricao, onComplete: { (pergunta) -> Void in
+                    var m = Materia(
+                        descricao: descricao,
+                        materia: materia,
+                        linkMateria: linkM,
+                        linkVideo: linkV,
+                        imagemURL: imgURL,
+                        pergunta:pergunta)
+                    
+                        array.append(m)
+                        cont++
+                    
+                    if(cont == items!.count-1){
+                        onComplete(array)
+
+                    }
+                    
+                })
                 
-             var m = Materia(
-                    descricao: descricao,
-                    materia: materia,
-                    linkMateria: linkM,
-                    linkVideo: linkV,
-                    imagemURL: imgURL)
-             array.append(m)
+                
+             
             }
             
-            onComplete(array)
+            
         }
     }
     
-    class func readyPergunta(classe:NSString,descricao:NSString) -> NSArray{
+    class func readyPergunta(classe:NSString,descricao:NSString, onComplete:([Pergunta])->Void) {
         
         var query = PFQuery(className:classe as String)
         var array = [Pergunta]()
@@ -84,7 +97,7 @@ class ConnectionManager
         var resp:String!
         
         query.findObjectsInBackgroundWithBlock {
-            
+    
             (items: [AnyObject]?,erro: NSError?) -> Void in
             
             for obj in items!
@@ -112,9 +125,9 @@ class ConnectionManager
                 }
              
             }
+            onComplete(array)
             
         }
-    return array
     }
     
     class func readyImage(classe:NSString,descricao:NSString,materia:NSString,obj:Materia, onComplete:((data:NSData?, error:NSError?)->Void)?) -> Void{
