@@ -19,9 +19,7 @@ class Content1ViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-    
     
     /*
     DataSource / Delegate
@@ -35,13 +33,36 @@ class Content1ViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = CellIdentifierText
-        let cell:Content1Cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! Content1Cell
+        var cell:Content1Cell!
         let d = data[indexPath.row]
-        println("\(cell.contentText) \(cell.contentImage)")
-        cell.contentText?.text = d
+        
+        if isImage(d) {
+            cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifierImage) as! Content1Cell
+            
+            let url = NSURL(string: d)
+            let request = NSURLRequest(URL: url!)
+            NSURLConnection.sendAsynchronousRequest(
+                request,
+                queue: NSOperationQueue.mainQueue(),
+                completionHandler: { (urlResponse, data, error) -> Void in
+                    if error == nil {
+                        let image = UIImage(data: data)
+                        cell.contentImage?.image = image
+                    }
+            })
+        } else {
+            cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifierText) as! Content1Cell
+            cell.contentText?.text = d
+        }
         
         return cell
+    }
+    
+    func isImage(str:String) -> Bool {
+        let pattern = NSRegularExpression(pattern: "\\.(jpg|jpeg|png)$", options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
+        let range = NSMakeRange(0, count(str))
+        let result = pattern!.numberOfMatchesInString(str, options: NSMatchingOptions.allZeros, range: range)
+        return result > 0
     }
     
 }
