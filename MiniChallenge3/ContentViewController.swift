@@ -32,7 +32,7 @@ class ContentViewController: CenterViewController {
         (views[0] as! Content1ViewController).data = content.materia
         (views[1] as! Content2ViewController).data = content.linkVideo
         (views[2] as! Content3ViewController).data = content.perguntas
-        
+
         setupRootContainerView(0)
     }
     
