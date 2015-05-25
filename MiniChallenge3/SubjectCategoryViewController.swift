@@ -19,7 +19,6 @@ class SubjectCategoryViewController: CenterViewController, UITableViewDataSource
     var SubjectKey: String!
     
     private var list:[Materia] = []
-    private var didAppear:Bool = false
     private var tableLoaded:Bool = false
     
     /*
@@ -38,13 +37,7 @@ class SubjectCategoryViewController: CenterViewController, UITableViewDataSource
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        didAppear = false
         tableView.reloadData()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        didAppear = true
     }
     
     override func viewWillDisappear(animated: Bool) {

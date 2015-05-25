@@ -13,11 +13,10 @@ class SubjectViewController: CenterViewController, UICollectionViewDataSource, U
     let SegueToSubjectCategory = "segue"
     
     private let anim_delay = 0.5
-    private let anim_cell_delay = 0.13
+    private let anim_cell_delay = 0.10
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private var didAppear:Bool = false
     private var subjects:[AnyObject] = []
     private var selectedIndex = -1
     
@@ -31,13 +30,7 @@ class SubjectViewController: CenterViewController, UICollectionViewDataSource, U
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        didAppear = false
         collectionView.reloadData()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        didAppear = true
     }
     
     override func viewWillDisappear(animated: Bool) {

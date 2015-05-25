@@ -15,7 +15,7 @@ protocol CenterViewControllerDelegate {
     optional func collapseSidePanels()
 }
 
-class CenterViewController: UIViewController {
+class CenterViewController: BaseUIViewController {
     
     var delegate: CenterViewControllerDelegate?
     
