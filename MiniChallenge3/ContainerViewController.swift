@@ -16,7 +16,6 @@ enum SlideOutState {
 class ContainerViewController: UIViewController, CenterViewControllerDelegate, SideMenuViewControllerDelegate, UIGestureRecognizerDelegate, UINavigationControllerDelegate {
     
     let centerPanelExpandedOffset:CGFloat = 60
-    
     let transitionManager:TransitionManager = TransitionManager()
 
     var centerNavigationController: UINavigationController!
@@ -111,6 +110,15 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, S
     func itemSelected(index: Int) {
         switch(currentState) {
         case .LeftPanelExpanded: toggleLeftPanel()
+        default: break
+        }
+        
+        switch(index) {
+        case 0: self.centerNavigationController.popToRootViewControllerAnimated(true)
+        case 1:
+            let nextScreen = UIStoryboard.mainStoryboard().instantiateViewControllerWithIdentifier("UserProfileViewController") as! UIViewController
+            self.centerNavigationController.pushViewController(nextScreen, animated: true)
+        case 2: return
         default: break
         }
     }

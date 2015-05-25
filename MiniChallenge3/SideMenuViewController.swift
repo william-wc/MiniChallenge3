@@ -13,11 +13,25 @@ protocol SideMenuViewControllerDelegate {
     optional func itemSelected(index:Int)
 }
 
-
+class MenuItem {
+    
+    var name:String
+    var image:UIImage
+    
+    init(name:String, imageName:String) {
+        self.name = name
+        self.image = UIImage(named: imageName)!
+    }
+    
+}
 
 class SideMenuViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var options:[AnyObject] = []
+    private let options = [
+        MenuItem(name: "Matérias", imageName: "icon center")
+        ,MenuItem(name: "Usuário", imageName: "icon user")
+        ,MenuItem(name: "Quiz", imageName: "icon question")
+    ]
     
     var delegate:SideMenuViewControllerDelegate?
     
@@ -40,11 +54,15 @@ class SideMenuViewController: UITableViewController, UITableViewDataSource, UITa
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return options.count
     }
   
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! SideMenuCell
+        let data = options[indexPath.row]
+        
+        cell.lblText.text = data.name
+        cell.iconImage.image = data.image
         
         return cell
     }

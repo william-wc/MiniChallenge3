@@ -17,18 +17,10 @@ protocol CenterViewControllerDelegate {
 
 class CenterViewController: UIViewController {
     
-//    let transitionManager:TransitionManager = TransitionManager()
-    
     var delegate: CenterViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        println("segue")
-//        let destination = segue.destinationViewController as! UIViewController
-//        destination.transitioningDelegate = self.transitionManager
-//    }
     
 }
