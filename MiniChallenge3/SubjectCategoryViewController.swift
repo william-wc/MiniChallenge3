@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SubjectCategoryViewController: CenterViewController, UITableViewDataSource, UITableViewDelegate {
     
     private let anim_delay = 0.3
     private let anim_cell_delay = 0.13
@@ -19,7 +19,7 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     var SubjectKey: String!
     
     private var list:[Materia] = []
-    private var didAppear:Bool = false
+    private var tableLoaded:Bool = false
     
     /*
     
@@ -30,19 +30,14 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
         
         ConnectionManager.readyMateria(self.SubjectKey, onComplete: { (materias) -> Void in
             self.list = materias
+            self.tableLoaded = false
             self.tableView.reloadData()
         })
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        didAppear = false
         tableView.reloadData()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        didAppear = true
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -77,7 +72,7 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
         cell.iconImage.image = Config.DefaultCategoryImage
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            if let url = NSURL(string: "") {
+            if let url = NSURL(string: materia.imagemURL) {
                 if let data = NSData(contentsOfURL: url) {
                     dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                         let image = UIImage(data: data)
@@ -95,8 +90,12 @@ class SubjectCategoryViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        let delay = didAppear ? 0 : anim_delay + anim_cell_delay * Double(indexPath.row)
+        let delay = didAppear && tableLoaded ? 0 : anim_delay + anim_cell_delay * Double(indexPath.row)
         (cell as! BaseAnimatableCell).animateIn(delay, indexPath: indexPath)
+        
+        if !tableLoaded && indexPath.row >= tableView.indexPathsForVisibleRows()!.count - 1 {
+            tableLoaded = true
+        }
     }
     
     func tableViewHideCells() {

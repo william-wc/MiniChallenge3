@@ -15,20 +15,12 @@ protocol CenterViewControllerDelegate {
     optional func collapseSidePanels()
 }
 
-class CenterViewController: UIViewController {
-    
-//    let transitionManager:TransitionManager = TransitionManager()
+class CenterViewController: BaseUIViewController {
     
     var delegate: CenterViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        println("segue")
-//        let destination = segue.destinationViewController as! UIViewController
-//        destination.transitioningDelegate = self.transitionManager
-//    }
     
 }

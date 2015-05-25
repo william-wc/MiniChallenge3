@@ -10,10 +10,6 @@ import Foundation
 
 class ConnectionManager
 {
-    
-    static let BasePath = "www.ellog.com.br/"
-    static let SubjectKeys = ["Exatas","Exatas","Exatas","Exatas","Exatas","Exatas"]
-   
     static var file:AnyObject?
     static var image:UIImage!
     
