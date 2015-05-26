@@ -20,6 +20,7 @@ class SubjectCategoryViewController: CenterViewController, UITableViewDataSource
     
     private var list:[Materia] = []
     private var tableLoaded:Bool = false
+    private var selectedIndex:NSIndexPath?
     
     /*
     
@@ -30,14 +31,17 @@ class SubjectCategoryViewController: CenterViewController, UITableViewDataSource
         
         ConnectionManager.readyMateria(self.SubjectKey, onComplete: { (materias) -> Void in
             self.list = materias
-            self.tableLoaded = false
+            self.tableLoaded = true
             self.tableView.reloadData()
+            self.tableViewWillDisplayCells()
         })
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        if tableLoaded {
+            tableViewWillDisplayCells()
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -49,6 +53,7 @@ class SubjectCategoryViewController: CenterViewController, UITableViewDataSource
         if segue.identifier == "segue" {
             let indexPath = tableView.indexPathForSelectedRow()
             let destination = segue.destinationViewController as! ContentViewController
+            self.selectedIndex = indexPath
             destination.content = list[indexPath!.row]
         }
     }
@@ -90,21 +95,30 @@ class SubjectCategoryViewController: CenterViewController, UITableViewDataSource
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        let delay = didAppear && tableLoaded ? 0 : anim_delay + anim_cell_delay * Double(indexPath.row)
-        (cell as! BaseAnimatableCell).animateIn(delay, indexPath: indexPath)
-        
-        if !tableLoaded && indexPath.row >= tableView.indexPathsForVisibleRows()!.count - 1 {
-            tableLoaded = true
+        (cell as! BaseAnimatableCell).animateIn(0, indexPath: indexPath)
+    }
+    
+    func tableViewWillDisplayCells() {
+        let paths = tableView.indexPathsForVisibleRows() as! [NSIndexPath]
+        if paths.count > 0 {
+            for i:Int in 0...paths.count-1 {
+                let path = paths[i]
+                let cell = tableView.cellForRowAtIndexPath(path) as! BaseAnimatableCell
+                let delay = anim_cell_delay * Double(i)
+                cell.animateIn(delay, indexPath: path)
+            }
         }
     }
     
     func tableViewHideCells() {
         let paths = tableView.indexPathsForVisibleRows() as! [NSIndexPath]
-        for i:Int in 0...paths.count-1 {
-            var path = paths[i]
-            var cell = tableView.cellForRowAtIndexPath(path) as! BaseAnimatableCell
-            var delay = anim_cell_delay * Double(i)
-            cell.animateOut(delay, indexPath: path)
+        if paths.count > 0 {
+            for i:Int in 0...paths.count-1 {
+                var path = paths[i]
+                var cell = tableView.cellForRowAtIndexPath(path) as! BaseAnimatableCell
+                var delay = anim_cell_delay * Double(i)
+                cell.animateOut(delay, indexPath: path)
+            }
         }
     }
     

@@ -18,7 +18,7 @@ class Content2Cell: UITableViewCell, BaseAnimatableCell {
     
     func animateIn(delay: Double, indexPath: NSIndexPath) {
         var t0 = CGAffineTransformMakeTranslation(0, 30)
-        CGAffineTransformScale(t0, 0.8, 0.8)
+        CGAffineTransformScale(t0, 0.7, 0.7)
         var t1 = CGAffineTransformIdentity
         
         self.alpha = 0.2
@@ -38,7 +38,7 @@ class Content2Cell: UITableViewCell, BaseAnimatableCell {
     
     func animateOut(delay: Double, indexPath: NSIndexPath) {
         var t1 = CGAffineTransformMakeTranslation(0, 30)
-        CGAffineTransformScale(t1, 0.8, 0.8)
+        CGAffineTransformScale(t1, 0.7, 0.7)
         
         UIView.animateWithDuration(
             anim_duration,

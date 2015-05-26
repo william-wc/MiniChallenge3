@@ -70,6 +70,7 @@ class Content2ViewController: BaseUIViewController, UITableViewDelegate, UITable
             }
         }
     }
+
     
 //    func vide(){
 //        var videoView = UIWebView(frame: self.view.bounds)
