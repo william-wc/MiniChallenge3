@@ -28,15 +28,19 @@ class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIView
         container.addSubview(toView)
         //container.addSubview(fromView)
         
-        /* Alpha transition
+        /* Alpha transition */
         toView.alpha = 0
-        UIView.animateWithDuration(duration, animations: { () -> Void in
-            fromView.alpha = 0
-            toView.alpha = 1
+        UIView.animateWithDuration(
+            duration,
+            animations: { () -> Void in
+                fromView.alpha = 0.0
+                toView.alpha = 1.0
+            }, completion: { (b:Bool) -> Void in
+                transitionContext.completeTransition(true)
         })
-        */
         
-        /* Circle Expand transition */
+        
+        /* Circle Expand transition
         var frame = container.frame
         var p1 = CGPoint(x: frame.width, y: frame.height / 2)
         var p2 = CGPoint(x: frame.origin.x, y: frame.height / 2)
@@ -66,7 +70,7 @@ class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIView
         group.animations.append(anim)
         
         maskLayer.addAnimation(group, forKey: "mask path")
-
+        */
     }
     
     override func animationDidStop(anim: CAAnimation!, finished flag: Bool) {

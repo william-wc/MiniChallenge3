@@ -14,6 +14,7 @@ class BaseUIViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        didAppear = false
     }
     
     override func viewDidAppear(animated: Bool) {
