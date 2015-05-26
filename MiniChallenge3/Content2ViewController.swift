@@ -54,12 +54,6 @@ class Content2ViewController: BaseUIViewController, UITableViewDelegate, UITable
         return cell
     }
     
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-    
-=======
->>>>>>> Stashed changes
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         let delay = didAppear ? 0 : anim_delay + anim_cell_delay * Double(indexPath.row)
         (cell as! BaseAnimatableCell).animateIn(delay, indexPath: indexPath)
@@ -76,10 +70,7 @@ class Content2ViewController: BaseUIViewController, UITableViewDelegate, UITable
             }
         }
     }
-<<<<<<< Updated upstream
-=======
->>>>>>> origin/master
->>>>>>> Stashed changes
+
     
 //    func vide(){
 //        var videoView = UIWebView(frame: self.view.bounds)
