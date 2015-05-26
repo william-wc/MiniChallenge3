@@ -30,7 +30,8 @@ class SubjectViewController: CenterViewController, UICollectionViewDataSource, U
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView.reloadData()
+        //collectionView.reloadData()
+        collectionViewShowCells()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -76,8 +77,8 @@ class SubjectViewController: CenterViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        let delay = didAppear ? 0.0 : anim_delay + anim_cell_delay * Double(Int(indexPath.row / 2))
-        (cell as! SubjectCell).animateIn(delay, indexPath: indexPath)
+        //let delay = didAppear ? 0.0 : anim_delay + anim_cell_delay * Double(Int(indexPath.row / 2))
+        (cell as! SubjectCell).animateIn(0.0, indexPath: indexPath)
     }
     
     func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
@@ -95,13 +96,27 @@ class SubjectViewController: CenterViewController, UICollectionViewDataSource, U
         self.performSegueWithIdentifier(SegueToSubjectCategory, sender: self)
     }
     
+    func collectionViewShowCells() {
+        let paths = collectionView.indexPathsForVisibleItems() as! [NSIndexPath]
+        if paths.count > 0 {
+            for i:Int in 0...paths.count-1 {
+                var path = paths[i]
+                var cell = collectionView.cellForItemAtIndexPath(path) as! BaseAnimatableCell
+                var delay = anim_delay + anim_cell_delay * Double(Int(path.row / 2))
+                cell.animateIn(delay, indexPath: path)
+            }
+        }
+    }
+    
     func collectionViewHideCells() {
         let paths = collectionView.indexPathsForVisibleItems() as! [NSIndexPath]
-        for i:Int in 0...paths.count-1 {
-            var path = paths[i]
-            var cell = collectionView.cellForItemAtIndexPath(path) as! BaseAnimatableCell
-            var delay = anim_cell_delay * Double(Int(i / 2))
-            cell.animateOut(delay, indexPath: path)
+        if paths.count > 0 {
+            for i:Int in 0...paths.count-1 {
+                var path = paths[i]
+                var cell = collectionView.cellForItemAtIndexPath(path) as! BaseAnimatableCell
+                var delay = anim_cell_delay * Double(Int(i / 2))
+                cell.animateOut(delay, indexPath: path)
+            }
         }
     }
     

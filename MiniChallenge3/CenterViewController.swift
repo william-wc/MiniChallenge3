@@ -18,9 +18,15 @@ protocol CenterViewControllerDelegate {
 class CenterViewController: BaseUIViewController {
     
     var delegate: CenterViewControllerDelegate?
+    var background:UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        background = UIImageView(frame: self.view.frame)
+        background.backgroundColor = UIColor(patternImage: UIImage(named: "pattern 1")!)
+        self.view.addSubview(background)
+        self.view.sendSubviewToBack(background)
     }
     
 }

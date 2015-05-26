@@ -95,6 +95,7 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, S
     }
     
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        //checking animation direction
         switch operation {
         case .Pop   : transitionManager.presenting = false
         case .Push  : transitionManager.presenting = true
