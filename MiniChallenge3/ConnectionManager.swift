@@ -117,11 +117,11 @@ class ConnectionManager
         {
             (items: [AnyObject]?,erro: NSError?) -> Void in
         
-            var popey = items?.first as! PFObject
+            var obj = items?.first as! PFObject
             
-            var pratofeitofile = popey["img"] as! PFFile
+            var file = obj["img"] as! PFFile
             
-            pratofeitofile.getDataInBackgroundWithBlock({ (data, error) -> Void in
+            file.getDataInBackgroundWithBlock({ (data, error) -> Void in
             onComplete?(data: data, error: error)
 
             })
