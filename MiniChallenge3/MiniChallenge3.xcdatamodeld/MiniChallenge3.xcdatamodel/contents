@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+    <entity name="Exatas" syncable="YES">
+        <attribute name="descricao" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="linkImg" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="linkMateria" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="linkVideo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="materia" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="PerguntaC" syncable="YES">
+        <attribute name="alt1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="alt2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="alt3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="alt4" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="questao" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="resolucao" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Usuario" syncable="YES">
+        <attribute name="acertos" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="erros" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Usuario" positionX="1944" positionY="1575" width="128" height="90"/>
+        <element name="Exatas" positionX="2133" positionY="1611" width="128" height="118"/>
+        <element name="PerguntaC" positionX="2061" positionY="1656" width="128" height="30"/>
+    </elements>
 </model>
