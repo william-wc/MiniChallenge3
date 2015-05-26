@@ -46,11 +46,11 @@ class Content2ViewController: BaseUIViewController, UITableViewDelegate, UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as! Content2Cell
-        var embedURL = "<iframe width=\"320\" height=\"180\" src=\"https://www.youtube.com/embed/mQSVKCmeAQE?list=PLf1lowbdbFIAURvpD8Qy8PqwrMjwx0N64\" frameborder=\"0\" allowfullscreen></iframe>"
+        var embedURL = "<iframe width=\"\(cell.webVideo.frame.width)\" height=\"\(cell.webVideo.frame.height)\" src=\"https://www.youtube.com/embed/mQSVKCmeAQE?list=PLf1lowbdbFIAURvpD8Qy8PqwrMjwx0N64\" frameborder=\"0\" allowfullscreen></iframe>"
         cell.webVideo.scrollView.scrollEnabled = false
         cell.webVideo.scrollView.bounces = false
         cell.webVideo.loadHTMLString(embedURL, baseURL: nil)
-        cell.topics.text = "Derivadas"
+        cell.topics.text = "Topicos a definir"
         return cell
     }
     
@@ -70,6 +70,7 @@ class Content2ViewController: BaseUIViewController, UITableViewDelegate, UITable
             }
         }
     }
+
     
 //    func vide(){
 //        var videoView = UIWebView(frame: self.view.bounds)
