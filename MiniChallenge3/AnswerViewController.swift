@@ -11,6 +11,9 @@ import Foundation
 
 class AnswerViewController: UIViewController {
 
+    @IBAction func nextQ(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     @IBOutlet var answer: UITextView!
     
     override func viewDidLoad() {
