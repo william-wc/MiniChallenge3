@@ -26,16 +26,15 @@ class quizData {
     }
 }
 
-
 class QuizViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
-    
+
     var list = [quizData(questions: "Quanto é 1+1?", alt: ["2", "4", "1", "3"]),
         quizData(questions: "O iPhone pertence a qual empresa?", alt: ["Apple", "Samsung", "Microsoft", "Google"]),quizData(questions: "Quantos anos vc tem?", alt: ["21", "19", "31", "24"]),quizData(questions: "Qual a derivada de x?", alt: ["1", "2x", "0", "x"])]
 
-    
+    var index: Int = 0
+
     @IBOutlet var question: UITextView!
     var pos: Int = 0
-    var index: Int = 0
     @IBOutlet var tvOp: UITableView!
     var ind: Int = 0
     
@@ -46,6 +45,8 @@ class QuizViewController:  UIViewController, UITableViewDataSource, UITableViewD
         self.question.text = list[index].questions
         
     }
+    
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! QuizCell
@@ -79,32 +80,37 @@ class QuizViewController:  UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var cell = tableView.cellForRowAtIndexPath(indexPath) as! QuizCell
-        index++
         
         if indexPath.row == pos {
-            
+            index++
             cell.backgroundColor = UIColor.greenColor()
             self.question.text = list[index].questions
-          
+            
             for i in 0...list[index].alt.count-1{
                 cell.options.text = list[index].alt[i]
             }
-            
         }
         else{
+            index++
             
-            cell.backgroundColor = UIColor.redColor()
-            self.performSegueWithIdentifier("wrong", sender: self)
-            self.question.text = list[index].questions
-           
             for i in 0...list[index].alt.count-1{
                 
                 cell.options.text = list[index].alt[i]
             }
+            cell.backgroundColor = UIColor.redColor()
+            
+            self.performSegueWithIdentifier("wrong", sender: self)
+            
+            self.question.text = list[index].questions
+            
+        }
         
 
-        }
-        var timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("update"), userInfo: nil, repeats: false)
+        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("update"), userInfo: nil, repeats: false)
         
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var destView: AnswerViewController = segue.destinationViewController as! AnswerViewController
+        destView.index = index
     }
 }
