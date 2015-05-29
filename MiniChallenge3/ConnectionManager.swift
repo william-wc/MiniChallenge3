@@ -95,6 +95,8 @@ class ConnectionManager
                             
                             var p: Pergunta
                             p = Pergunta(t: quest, i: index, alt: opcoes, d: resp)
+                            println()
+                            
                             array.append(p)
                             
                         }
