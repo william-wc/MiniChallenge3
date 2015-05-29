@@ -28,6 +28,7 @@ class SubjectCategoryViewController: CenterViewController, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.backgroundColor = UIColor.clearColor()
         
         ConnectionManager.readyMateria(self.SubjectKey, onComplete: { (materias) -> Void in
             self.list = materias

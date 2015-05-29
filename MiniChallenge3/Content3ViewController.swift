@@ -10,7 +10,8 @@ import UIKit
 
 class Content3ViewController: BaseUIViewController , UITableViewDelegate, UITableViewDataSource {
     
-    let CellIdentifier   = "cell"
+    let SegueToQuiz     = "segue"
+    let CellIdentifier  = "cell"
     
     let anim_delay = 0.5
     let anim_cell_delay = 0.10
@@ -32,6 +33,14 @@ class Content3ViewController: BaseUIViewController , UITableViewDelegate, UITabl
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         tableViewWillHideCells()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == SegueToQuiz {
+            let destination = segue.destinationViewController as! QuizViewController
+            println("data:")
+            println(data)
+        }
     }
     
     
@@ -58,6 +67,10 @@ class Content3ViewController: BaseUIViewController , UITableViewDelegate, UITabl
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         let delay = didAppear ? 0 : anim_delay + anim_cell_delay * Double(indexPath.row)
         (cell as! BaseAnimatableCell).animateIn(delay, indexPath: indexPath)
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("segue", sender: self)
     }
     
     func tableViewWillHideCells() {

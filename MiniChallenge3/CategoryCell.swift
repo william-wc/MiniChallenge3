@@ -17,7 +17,16 @@ class CategoryCell: UITableViewCell, BaseAnimatableCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var selectionBar: UIView!
-
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = UIColor.clearColor()
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.backgroundColor = UIColor.clearColor()
+    }
     
     override func setHighlighted(highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)

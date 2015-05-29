@@ -37,8 +37,10 @@ class SideMenuCell: UITableViewCell, BaseAnimatableCell {
     private func setDisplay(b:Bool) {
         if b {
             self.backgroundColor = UIColor(white: 0.9, alpha: 0.7)
+            selectionBar.alpha = 1.0
         } else {
             self.backgroundColor = UIColor.clearColor()
+            selectionBar.alpha = 0.0
         }
     }
     

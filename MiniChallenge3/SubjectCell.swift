@@ -13,6 +13,12 @@ class SubjectCell: UICollectionViewCell, BaseAnimatableCell {
     @IBOutlet weak var image:UIImageView!
     @IBOutlet weak var text :UILabel!
     
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.layer.cornerRadius = 10.0
+        self.clipsToBounds = true
+    }
+    
     
     func setHighlight(highlight:Bool) {
         setDisplay(highlight)

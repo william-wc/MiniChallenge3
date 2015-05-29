@@ -12,15 +12,17 @@ class QuizCell: UITableViewCell {
 
     @IBOutlet var options: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    override func drawRect(rect: CGRect) {
+        super.drawRect(rect)
+        self.layer.cornerRadius = 10.0
+        self.clipsToBounds = true
     }
+    
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
 }

@@ -28,15 +28,19 @@ class quizData {
 
 class QuizViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
 
-    var list = [quizData(questions: "Quanto é 1+1?", alt: ["2", "4", "1", "3"]),
-        quizData(questions: "O iPhone pertence a qual empresa?", alt: ["Apple", "Samsung", "Microsoft", "Google"]),quizData(questions: "Quantos anos vc tem?", alt: ["21", "19", "31", "24"]),quizData(questions: "Qual a derivada de x?", alt: ["1", "2x", "0", "x"])]
-
-    var index: Int = 0
+    var list = [
+        quizData(questions: "Quanto é 1+1?", alt: ["2", "4", "1", "3"]),
+        quizData(questions: "O iPhone pertence a qual empresa?", alt: ["Apple", "Samsung", "Microsoft", "Google"]),
+        quizData(questions: "Quantos anos vc tem?", alt: ["21", "19", "31", "24"]),
+        quizData(questions: "Qual a derivada de x?", alt: ["1", "2x", "0", "x"])
+    ]
 
     @IBOutlet var question: UITextView!
-    var pos: Int = 0
     @IBOutlet var tvOp: UITableView!
+    
     var ind: Int = 0
+    var index: Int = 0
+    var pos: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,22 +50,7 @@ class QuizViewController:  UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
-    
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! QuizCell
-        cell.backgroundColor = UIColor.whiteColor()
-        cell.options.text = list[index].alt[indexPath.row]
-        
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
-    }
-    
-    
-    func update(){
+    func update() {
         var right = list[index].alt[0]
         println(right)
         
@@ -71,11 +60,36 @@ class QuizViewController:  UIViewController, UITableViewDataSource, UITableViewD
         for i in 0...list[index].alt.count-1{
             if right == list[index].alt[i]{
                 pos = i
-            
+                
             }
         }
-
+        
         tvOp.reloadData()
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var destView: AnswerViewController = segue.destinationViewController as! AnswerViewController
+        destView.index = index
+    }
+    
+    /*
+    DataSource / Delegate
+    */
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return list.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! QuizCell
+        cell.options.text = list[index].alt[indexPath.row]
+        
+        return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -105,12 +119,12 @@ class QuizViewController:  UIViewController, UITableViewDataSource, UITableViewD
             
         }
         
-
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("update"), userInfo: nil, repeats: false)
         
+        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("update"), userInfo: nil, repeats: false)
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var destView: AnswerViewController = segue.destinationViewController as! AnswerViewController
-        destView.index = index
-    }
+
+    
+    
+    
+    
 }

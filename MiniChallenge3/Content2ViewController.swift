@@ -52,7 +52,6 @@ class Content2ViewController: BaseUIViewController, UITableViewDelegate, UITable
         let requestURL = NSURL(string: embedURL)
         let request = NSURLRequest(URL: requestURL!)
         cell.webVideo.loadRequest(request)
-        cell.topics.text = "Topicos a definir"
         return cell
     }
     

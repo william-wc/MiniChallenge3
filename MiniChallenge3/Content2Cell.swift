@@ -14,8 +14,6 @@ class Content2Cell: UITableViewCell, BaseAnimatableCell {
     
     @IBOutlet var webVideo: UIWebView!
     
-    @IBOutlet var topics: UILabel!
-    
     func animateIn(delay: Double, indexPath: NSIndexPath) {
         var t0 = CGAffineTransformMakeTranslation(0, 30)
         CGAffineTransformScale(t0, 0.7, 0.7)

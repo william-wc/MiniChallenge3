@@ -24,7 +24,8 @@ class CenterViewController: BaseUIViewController {
         super.viewDidLoad()
         
         background = UIImageView(frame: self.view.frame)
-        background.backgroundColor = UIColor(patternImage: UIImage(named: "pattern 1")!)
+        background.backgroundColor = UIColor(patternImage: UIImage(named: "pattern 3")!)
+        background.alpha = 1.0
         self.view.addSubview(background)
         self.view.sendSubviewToBack(background)
     }
