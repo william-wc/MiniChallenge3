@@ -38,8 +38,7 @@ class Content3ViewController: BaseUIViewController , UITableViewDelegate, UITabl
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == SegueToQuiz {
             let destination = segue.destinationViewController as! QuizViewController
-            println("data:")
-            println(data)
+            //todo
         }
     }
     

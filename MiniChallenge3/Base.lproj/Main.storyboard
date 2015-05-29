@@ -412,6 +412,24 @@
             </objects>
             <point key="canvasLocation" x="5626" y="1284"/>
         </scene>
+        <!--Quiz List View Controller-->
+        <scene sceneID="JV4-Ni-EwK">
+            <objects>
+                <viewController id="kt2-No-hgL" customClass="QuizListViewController" customModule="MiniChallenge3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ftt-49-CcB"/>
+                        <viewControllerLayoutGuide type="bottom" id="PBT-x0-r8x"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ANr-GO-RJz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.45882352939999999" green="0.82745098039999998" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YIg-Cu-884" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4948" y="2106"/>
+        </scene>
         <!--Content2 View Controller-->
         <scene sceneID="e4w-QH-Tqx">
             <objects>
@@ -560,9 +578,42 @@
                     <view key="view" contentMode="scaleToFill" id="qci-pU-8bJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6m1-ao-PHq">
+                                <rect key="frame" x="16" y="227" width="568" height="180"/>
+                                <color key="backgroundColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="q6P-RY-Amu"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon user" translatesAutoresizingMaskIntoConstraints="NO" id="XnI-lr-lnL">
+                                <rect key="frame" x="240" y="92" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="UQD-Kb-vvj"/>
+                                    <constraint firstAttribute="height" constant="120" id="gEZ-Ri-AwN"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.33333333329999998" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="6m1-ao-PHq" secondAttribute="centerX" id="2Rj-Xz-N3K"/>
+                            <constraint firstItem="6m1-ao-PHq" firstAttribute="leading" secondItem="qci-pU-8bJ" secondAttribute="leadingMargin" id="7RY-Yc-mCH"/>
+                            <constraint firstItem="6m1-ao-PHq" firstAttribute="top" secondItem="XnI-lr-lnL" secondAttribute="bottom" constant="15" id="Ak9-Vm-6ZZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6m1-ao-PHq" secondAttribute="trailing" id="FU0-sx-JeO"/>
+                            <constraint firstAttribute="centerX" secondItem="XnI-lr-lnL" secondAttribute="centerX" id="I5M-YL-WKR"/>
+                            <constraint firstItem="XnI-lr-lnL" firstAttribute="top" secondItem="zwo-nt-PaH" secondAttribute="bottom" constant="28" id="azz-Yo-bCT"/>
+                            <constraint firstItem="6m1-ao-PHq" firstAttribute="top" secondItem="zwo-nt-PaH" secondAttribute="bottom" constant="29" id="bX2-gq-uBe"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="bX2-gq-uBe"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="graphView" destination="6m1-ao-PHq" id="PuE-HT-Ukp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OiS-Cu-mmJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -595,7 +646,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="79" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ztv-qz-qoP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.9137254901960784" green="0.75686274509803919" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.99607843137254903" green="0.92156862745098034" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
                         <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu-header" id="0Dl-jf-2SU">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="125"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -609,7 +660,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqA-qy-nKw">
                                             <rect key="frame" x="64" y="8" width="528" height="63"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" red="1" green="0.33333333333333331" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bR4-Hm-bWf">
@@ -785,6 +836,7 @@
         <image name="icon lamp" width="128" height="128"/>
         <image name="icon main menu" width="128" height="128"/>
         <image name="icon menu" width="44" height="44"/>
+        <image name="icon user" width="128" height="128"/>
         <image name="icon video" width="256" height="256"/>
         <image name="menu-header" width="509" height="232"/>
         <image name="subject chemistry" width="128" height="128"/>

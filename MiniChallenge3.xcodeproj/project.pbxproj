@@ -41,6 +41,7 @@
 		8F86BD711B0CFEE700C39AD0 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86BD701B0CFEE600C39AD0 /* QuizViewController.swift */; };
 		8FC5FB041B08E73600231470 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5FB031B08E73600231470 /* ContentViewController.swift */; };
 		8FC5FB071B08EC7F00231470 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5FB061B08EC7F00231470 /* TransitionManager.swift */; };
+		8FCD88DF1B18EFD000D33E0C /* QuizListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCD88DE1B18EFD000D33E0C /* QuizListViewController.swift */; };
 		8FDE841B1B011AFD008EB0CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE841A1B011AFD008EB0CA /* AppDelegate.swift */; };
 		8FDE841E1B011AFD008EB0CA /* MiniChallenge3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE841C1B011AFD008EB0CA /* MiniChallenge3.xcdatamodeld */; };
 		8FDE84231B011AFD008EB0CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FDE84211B011AFD008EB0CA /* Main.storyboard */; };
@@ -115,6 +116,7 @@
 		8F86BD701B0CFEE600C39AD0 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		8FC5FB031B08E73600231470 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		8FC5FB061B08EC7F00231470 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
+		8FCD88DE1B18EFD000D33E0C /* QuizListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizListViewController.swift; sourceTree = "<group>"; };
 		8FDE84151B011AFD008EB0CA /* MiniChallenge3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallenge3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FDE84191B011AFD008EB0CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FDE841A1B011AFD008EB0CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				8F86BD701B0CFEE600C39AD0 /* QuizViewController.swift */,
 				D448A9351B0E527C00EBEB90 /* AnswerViewController.swift */,
 				8FE3AA7F1B139FEC00AB176E /* BaseUIViewController.swift */,
+				8FCD88DE1B18EFD000D33E0C /* QuizListViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				8FDE84681B025FD0008EB0CA /* SideMenuViewController.swift in Sources */,
 				8FE3AA801B139FEC00AB176E /* BaseUIViewController.swift in Sources */,
 				8FDE841B1B011AFD008EB0CA /* AppDelegate.swift in Sources */,
+				8FCD88DF1B18EFD000D33E0C /* QuizListViewController.swift in Sources */,
 				5115A0691B18D1B700184893 /* Usuario.swift in Sources */,
 				5115A0731B18D7DB00184893 /* PerguntaCManager.swift in Sources */,
 				8F6360B21B0F991400DEEA09 /* Config.swift in Sources */,

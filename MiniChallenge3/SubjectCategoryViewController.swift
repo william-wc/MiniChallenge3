@@ -51,13 +51,11 @@ class SubjectCategoryViewController: CenterViewController, UITableViewDataSource
                 subject.linkVideo = lista.linkVideo[0]
                 subject.materia = lista.materia[0]
                 ExatasManager.sharedInstance.salvar()
-                println("teste")
             }
             
             var p = ExatasManager.sharedInstance.buscarMarcas()
             
-            for lista in p{
-                println(lista.materia)
+            for lista in p {
             
             }
 

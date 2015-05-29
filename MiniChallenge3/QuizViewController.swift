@@ -52,7 +52,6 @@ class QuizViewController:  UIViewController, UITableViewDataSource, UITableViewD
     
     func update() {
         var right = list[index].alt[0]
-        println(right)
         
         list[index].alt.shuffle()
         

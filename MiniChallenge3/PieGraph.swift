@@ -43,8 +43,7 @@ class PieGraph: CAShapeLayer {
         }
         
         var sumP:CGFloat = 0
-        
-        for i in 0...data.count-1 {
+        for var i = data.count-1; i >= 0 ; i-- {
             let p:CGFloat = CGFloat(data[i] / total)
             let path = UIBezierPath(
                 arcCenter   : center,
