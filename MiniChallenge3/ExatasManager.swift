@@ -2,7 +2,7 @@
 //  ExatasManager.swift
 //  MiniChallenge3
 //
-//  Created by Bruno Faganello Neto on 26/05/15.
+//  Created by Bruno Faganello Neto on 29/05/15.
 //  Copyright (c) 2015 William Hong Jun Cho. All rights reserved.
 //
 
@@ -10,15 +10,18 @@ import Foundation
 import CoreData
 import UIKit
 
+
+
 public class ExatasManager{
     static let sharedInstance:ExatasManager = ExatasManager()
     static let entityName:String = "Exatas"
-    
     lazy var managedContext:NSManagedObjectContext = {
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         var c = appDelegate.managedObjectContext
         return c!
         }()
+    
+    
     
     private init(){}
     
@@ -37,7 +40,7 @@ public class ExatasManager{
         }
     }
     
-    func buscarExatas()->Array<Exatas>
+    func buscarMarcas()->Array<Exatas>
     {
         let fetchRequest = NSFetchRequest(entityName: ExatasManager.entityName)
         var error:NSError?
@@ -55,8 +58,6 @@ public class ExatasManager{
         
         return Array<Exatas>()
     }
-    
-    
     
     
 }
