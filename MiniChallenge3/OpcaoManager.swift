@@ -1,5 +1,5 @@
 //
-//  PerguntaCManager.swift
+//  OpcaoManager.swift
 //  MiniChallenge3
 //
 //  Created by Bruno Faganello Neto on 29/05/15.
@@ -12,9 +12,9 @@ import UIKit
 
 
 
-public class PerguntaCManager{
-    static let sharedInstance:PerguntaCManager = PerguntaCManager()
-    static let entityName:String = "PerguntaC"
+public class OpcaoManager{
+    static let sharedInstance:OpcaoManager = OpcaoManager()
+    static let entityName:String = "Opcao"
     lazy var managedContext:NSManagedObjectContext = {
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         var c = appDelegate.managedObjectContext
@@ -25,9 +25,9 @@ public class PerguntaCManager{
     
     private init(){}
     
-    func novaExata()->PerguntaC
+    func novaExata()->Opcao
     {
-        return NSEntityDescription.insertNewObjectForEntityForName(PerguntaCManager.entityName, inManagedObjectContext: managedContext) as! PerguntaC
+        return NSEntityDescription.insertNewObjectForEntityForName(OpcaoManager.entityName, inManagedObjectContext: managedContext) as! Opcao
     }
     
     func salvar()
@@ -40,14 +40,14 @@ public class PerguntaCManager{
         }
     }
     
-    func buscarMarcas()->Array<PerguntaC>
+    func buscarMarcas()->Array<Opcao>
     {
-        let fetchRequest = NSFetchRequest(entityName: PerguntaCManager.entityName)
+        let fetchRequest = NSFetchRequest(entityName: OpcaoManager.entityName)
         var error:NSError?
         
         let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
         
-        if let results = fetchedResults as? [PerguntaC] {
+        if let results = fetchedResults as? [Opcao] {
             return results
         } else {
             println("Could not fetch. Error: \(error), \(error!.userInfo)")
@@ -56,7 +56,7 @@ public class PerguntaCManager{
         NSFetchRequest(entityName: "FetchRequest")
         
         
-        return Array<PerguntaC>()
+        return Array<Opcao>()
     }
     
     

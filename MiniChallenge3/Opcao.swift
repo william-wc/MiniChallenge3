@@ -1,5 +1,5 @@
 //
-//  Usuario.swift
+//  Opcao.swift
 //  MiniChallenge3
 //
 //  Created by Bruno Faganello Neto on 29/05/15.
@@ -9,10 +9,9 @@
 import Foundation
 import CoreData
 
-class Usuario: NSManagedObject {
+class Opcao: NSManagedObject {
 
-    @NSManaged var acertos: NSNumber
-    @NSManaged var erros: NSNumber
-    @NSManaged var nome: String
+    @NSManaged var texto: String
+    @NSManaged var relationship: PerguntaC
 
 }

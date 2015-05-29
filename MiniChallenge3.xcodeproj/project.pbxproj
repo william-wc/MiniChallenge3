@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		51001B701B0CF167000F7BB1 /* Pergunta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51001B6F1B0CF167000F7BB1 /* Pergunta.swift */; };
-		5125E5D81B14DAC800C988E4 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5125E5D71B14DAC800C988E4 /* Usuario.swift */; };
-		5125E5DB1B14DC0100C988E4 /* UsuarioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5125E5DA1B14DC0100C988E4 /* UsuarioManager.swift */; };
-		5125E5E21B14E1D400C988E4 /* Exatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5125E5E11B14E1D400C988E4 /* Exatas.swift */; };
-		5125E5E41B14E24D00C988E4 /* ExatasManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5125E5E31B14E24D00C988E4 /* ExatasManager.swift */; };
-		5125E5E61B14E6DB00C988E4 /* PerguntaC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5125E5E51B14E6DB00C988E4 /* PerguntaC.swift */; };
-		5125E5E81B14EC6D00C988E4 /* PerguntaCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5125E5E71B14EC6D00C988E4 /* PerguntaCManager.swift */; };
+		5115A0691B18D1B700184893 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115A0681B18D1B700184893 /* Usuario.swift */; };
+		5115A06B1B18D1B700184893 /* Opcao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115A06A1B18D1B700184893 /* Opcao.swift */; };
+		5115A06D1B18D1B700184893 /* PerguntaC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115A06C1B18D1B700184893 /* PerguntaC.swift */; };
+		5115A06F1B18D1B800184893 /* Exatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115A06E1B18D1B800184893 /* Exatas.swift */; };
+		5115A0711B18D55600184893 /* ExatasManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115A0701B18D55600184893 /* ExatasManager.swift */; };
+		5115A0731B18D7DB00184893 /* PerguntaCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115A0721B18D7DB00184893 /* PerguntaCManager.swift */; };
+		5115A0751B18D8E800184893 /* OpcaoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115A0741B18D8E800184893 /* OpcaoManager.swift */; };
 		5142BDCA1B0CFC88005375C6 /* Materia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5142BDC91B0CFC88005375C6 /* Materia.swift */; };
 		51628C091B0510250039DA34 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51628C031B0510250039DA34 /* Bolts.framework */; };
 		51628C0A1B0510250039DA34 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51628C041B0510250039DA34 /* Parse.framework */; };
@@ -81,12 +82,13 @@
 
 /* Begin PBXFileReference section */
 		51001B6F1B0CF167000F7BB1 /* Pergunta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pergunta.swift; sourceTree = "<group>"; };
-		5125E5D71B14DAC800C988E4 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
-		5125E5DA1B14DC0100C988E4 /* UsuarioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsuarioManager.swift; sourceTree = "<group>"; };
-		5125E5E11B14E1D400C988E4 /* Exatas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exatas.swift; sourceTree = "<group>"; };
-		5125E5E31B14E24D00C988E4 /* ExatasManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExatasManager.swift; sourceTree = "<group>"; };
-		5125E5E51B14E6DB00C988E4 /* PerguntaC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerguntaC.swift; sourceTree = "<group>"; };
-		5125E5E71B14EC6D00C988E4 /* PerguntaCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerguntaCManager.swift; sourceTree = "<group>"; };
+		5115A0681B18D1B700184893 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		5115A06A1B18D1B700184893 /* Opcao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opcao.swift; sourceTree = "<group>"; };
+		5115A06C1B18D1B700184893 /* PerguntaC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerguntaC.swift; sourceTree = "<group>"; };
+		5115A06E1B18D1B800184893 /* Exatas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exatas.swift; sourceTree = "<group>"; };
+		5115A0701B18D55600184893 /* ExatasManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExatasManager.swift; sourceTree = "<group>"; };
+		5115A0721B18D7DB00184893 /* PerguntaCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerguntaCManager.swift; sourceTree = "<group>"; };
+		5115A0741B18D8E800184893 /* OpcaoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpcaoManager.swift; sourceTree = "<group>"; };
 		5142BDC91B0CFC88005375C6 /* Materia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Materia.swift; sourceTree = "<group>"; };
 		51628C031B0510250039DA34 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		51628C041B0510250039DA34 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -183,9 +185,9 @@
 		5125E5D91B14DB4D00C988E4 /* CoreData Managers */ = {
 			isa = PBXGroup;
 			children = (
-				5125E5DA1B14DC0100C988E4 /* UsuarioManager.swift */,
-				5125E5E31B14E24D00C988E4 /* ExatasManager.swift */,
-				5125E5E71B14EC6D00C988E4 /* PerguntaCManager.swift */,
+				5115A0701B18D55600184893 /* ExatasManager.swift */,
+				5115A0721B18D7DB00184893 /* PerguntaCManager.swift */,
+				5115A0741B18D8E800184893 /* OpcaoManager.swift */,
 			);
 			name = "CoreData Managers";
 			sourceTree = "<group>";
@@ -193,9 +195,10 @@
 		5125E5DC1B14DF4F00C988E4 /* CoreData Model */ = {
 			isa = PBXGroup;
 			children = (
-				5125E5D71B14DAC800C988E4 /* Usuario.swift */,
-				5125E5E11B14E1D400C988E4 /* Exatas.swift */,
-				5125E5E51B14E6DB00C988E4 /* PerguntaC.swift */,
+				5115A06E1B18D1B800184893 /* Exatas.swift */,
+				5115A06C1B18D1B700184893 /* PerguntaC.swift */,
+				5115A06A1B18D1B700184893 /* Opcao.swift */,
+				5115A0681B18D1B700184893 /* Usuario.swift */,
 			);
 			name = "CoreData Model";
 			sourceTree = "<group>";
@@ -470,38 +473,39 @@
 				8FDE84491B013A5C008EB0CA /* MainNavigationController.swift in Sources */,
 				8FDE846A1B02600E008EB0CA /* CenterViewController.swift in Sources */,
 				8FDE846E1B0503E7008EB0CA /* SubjectHeader.swift in Sources */,
+				5115A0711B18D55600184893 /* ExatasManager.swift in Sources */,
+				5115A06B1B18D1B700184893 /* Opcao.swift in Sources */,
 				8FEF4BC51B0A564800AE9709 /* Content1ViewController.swift in Sources */,
 				8FDE84531B01412F008EB0CA /* CDManager.swift in Sources */,
 				8FEF4BC71B0A565100AE9709 /* Content2ViewController.swift in Sources */,
 				8FEF4BCF1B0A6E4600AE9709 /* BaseAnimatableCell.swift in Sources */,
 				8FC5FB071B08EC7F00231470 /* TransitionManager.swift in Sources */,
+				5115A0751B18D8E800184893 /* OpcaoManager.swift in Sources */,
 				8FDE84471B013111008EB0CA /* SubjectCell.swift in Sources */,
 				D448A9361B0E527C00EBEB90 /* AnswerViewController.swift in Sources */,
-				5125E5E41B14E24D00C988E4 /* ExatasManager.swift in Sources */,
 				8FEF4BCD1B0A669C00AE9709 /* SideMenuCell.swift in Sources */,
-				5125E5E61B14E6DB00C988E4 /* PerguntaC.swift in Sources */,
-				5125E5DB1B14DC0100C988E4 /* UsuarioManager.swift in Sources */,
 				8FC5FB041B08E73600231470 /* ContentViewController.swift in Sources */,
 				8F86BD711B0CFEE700C39AD0 /* QuizViewController.swift in Sources */,
 				8F6360491B0D034300DEEA09 /* Content3Cell.swift in Sources */,
 				8FDE84411B012E1A008EB0CA /* SubjectViewController.swift in Sources */,
 				8F6360B01B0F98A500DEEA09 /* SwiftyJSON.swift in Sources */,
+				5115A06D1B18D1B700184893 /* PerguntaC.swift in Sources */,
 				51001B701B0CF167000F7BB1 /* Pergunta.swift in Sources */,
 				8FE3AA7C1B13993A00AB176E /* PieGraph.swift in Sources */,
 				8FDE841E1B011AFD008EB0CA /* MiniChallenge3.xcdatamodeld in Sources */,
 				5142BDCA1B0CFC88005375C6 /* Materia.swift in Sources */,
-				5125E5D81B14DAC800C988E4 /* Usuario.swift in Sources */,
 				51628C1B1B0510FE0039DA34 /* MiniChallenge3-Bridging-Header.m in Sources */,
 				8FEF4BC91B0A565A00AE9709 /* Content3ViewController.swift in Sources */,
 				8FEF4BCB1B0A5C9900AE9709 /* UserProfileViewController.swift in Sources */,
 				8F86BD6F1B0CFB7B00C39AD0 /* Content1Cell.swift in Sources */,
-				5125E5E21B14E1D400C988E4 /* Exatas.swift in Sources */,
 				8FDE84661B025F88008EB0CA /* ContainerViewController.swift in Sources */,
 				8FDE84681B025FD0008EB0CA /* SideMenuViewController.swift in Sources */,
 				8FE3AA801B139FEC00AB176E /* BaseUIViewController.swift in Sources */,
 				8FDE841B1B011AFD008EB0CA /* AppDelegate.swift in Sources */,
+				5115A0691B18D1B700184893 /* Usuario.swift in Sources */,
+				5115A0731B18D7DB00184893 /* PerguntaCManager.swift in Sources */,
 				8F6360B21B0F991400DEEA09 /* Config.swift in Sources */,
-				5125E5E81B14EC6D00C988E4 /* PerguntaCManager.swift in Sources */,
+				5115A06F1B18D1B800184893 /* Exatas.swift in Sources */,
 				8F6360471B0D01B500DEEA09 /* Content2Cell.swift in Sources */,
 				51628C261B0532DF0039DA34 /* CategoryCell.swift in Sources */,
 			);

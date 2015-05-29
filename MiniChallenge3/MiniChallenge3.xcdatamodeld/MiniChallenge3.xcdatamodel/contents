@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Exatas" syncable="YES">
+    <entity name="Exatas" representedClassName="Exatas" syncable="YES">
         <attribute name="descricao" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="linkImg" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="linkMateria" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="linkVideo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="materia" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contem" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PerguntaC" inverseName="relationship" inverseEntity="PerguntaC" syncable="YES"/>
     </entity>
-    <entity name="PerguntaC" syncable="YES">
-        <attribute name="alternativas" optional="YES" attributeType="Binary" syncable="YES"/>
+    <entity name="Opcao" representedClassName="Opcao" syncable="YES">
+        <attribute name="texto" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PerguntaC" inverseName="alternativas" inverseEntity="PerguntaC" syncable="YES"/>
+    </entity>
+    <entity name="PerguntaC" representedClassName="PerguntaC" syncable="YES">
         <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="questao" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="resolucao" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="alternativas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Opcao" inverseName="relationship" inverseEntity="Opcao" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exatas" inverseName="contem" inverseEntity="Exatas" syncable="YES"/>
     </entity>
-    <entity name="Usuario" syncable="YES">
+    <entity name="Usuario" representedClassName="Usuario" syncable="YES">
         <attribute name="acertos" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="erros" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Exatas" positionX="2133" positionY="1611" width="128" height="118"/>
-        <element name="PerguntaC" positionX="2061" positionY="1656" width="128" height="105"/>
-        <element name="Usuario" positionX="1944" positionY="1575" width="128" height="90"/>
+        <element name="Exatas" positionX="1422" positionY="1532" width="171" height="133"/>
+        <element name="PerguntaC" positionX="1960" positionY="1547" width="128" height="118"/>
+        <element name="Usuario" positionX="1960" positionY="1746" width="128" height="88"/>
+        <element name="Opcao" positionX="2178" positionY="1575" width="128" height="73"/>
     </elements>
 </model>
