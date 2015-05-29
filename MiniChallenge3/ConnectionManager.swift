@@ -52,16 +52,18 @@ class ConnectionManager
                 m.linkMateria = (obj["linkMateria"] as? [String])!
                 m.linkVideo   = (obj["linkVideo"] as? [String])!
                 m.imagemURL   = obj["linkImg"] as? String
-                
-                array.append(m)
-                
+                println(m.descricao)
                 self.readyPergunta(classe, descricao: m.descricao, onComplete: { (pergunta) -> Void in
+                    
                     m.perguntas = pergunta
+                    println(m.perguntas)
 
+                    array.append(m)
                     cont++
                     if(cont >= items!.count) {
                         onComplete(array)
                     }
+                    
                 })
             }
         }
@@ -74,6 +76,7 @@ class ConnectionManager
         var index:Int!
         var opcoes:[Int]!
         var resp:String!
+        var cont = 0
         
         query.findObjectsInBackgroundWithBlock {
     
@@ -89,25 +92,35 @@ class ConnectionManager
                     cueri!.findObjectsInBackgroundWithBlock {
                         (items2: [AnyObject]?,erro: NSError?) -> Void in
                         for obj2 in items2!{
-                          quest = obj2["questao"] as! String
+                          cont++
+                            quest = obj2["questao"] as! String
                           index = obj2["index"] as! Int
                           opcoes = obj2["opcoes"] as! [Int]
                           resp = obj2["resolucao"]! as! String
                             
                             var p: Pergunta
                             p = Pergunta(t: quest, i: index, alt: opcoes, d: resp)
-                            println()
                             
                             array.append(p)
                             
+                            if(items2!.count <= cont){
+                            
+                                onComplete(array)
+                            
+                            }
+                            
+                            
+
                         }
-                
+                        
+
+                        
                     }
+
                 }
-             
             }
-            onComplete(array)
             
+
         }
     }
     
