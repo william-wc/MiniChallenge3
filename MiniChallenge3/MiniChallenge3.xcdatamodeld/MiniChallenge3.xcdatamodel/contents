@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Exatas" representedClassName="Exatas" syncable="YES">
+    <entity name="Exatas" representedClassName="MiniChallenge3.Exatas" syncable="YES">
         <attribute name="descricao" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="linkImg" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="linkMateria" optional="YES" attributeType="String" syncable="YES"/>

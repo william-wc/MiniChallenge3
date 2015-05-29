@@ -41,7 +41,30 @@ class SubjectCategoryViewController: CenterViewController, UITableViewDataSource
         super.viewWillAppear(animated)
         if tableLoaded {
             tableViewWillDisplayCells()
+            
+            for lista in list{
+                var subject = ExatasManager.sharedInstance.novaExata()
+                subject.descricao = lista.descricao
+                subject.linkImg = lista.imagemURL
+                subject.linkMateria = lista.linkMateria[0]
+                subject.linkVideo = lista.linkVideo[0]
+                subject.materia = lista.materia[0]
+                ExatasManager.sharedInstance.salvar()
+                println("teste")
+            }
+            
+            var p = ExatasManager.sharedInstance.buscarMarcas()
+            
+            for lista in p{
+                println(lista.materia)
+            
+            }
+
+        
+        
         }
+        
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
