@@ -57,6 +57,7 @@ class ConnectionManager
                 
                 self.readyPergunta(classe, descricao: m.descricao, onComplete: { (pergunta) -> Void in
                     m.perguntas = pergunta
+                    println(m.perguntas)
                     cont++
                     if(cont >= items!.count) {
                         onComplete(array)

@@ -52,7 +52,6 @@
 		8FDE84531B01412F008EB0CA /* CDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE84521B01412F008EB0CA /* CDManager.swift */; };
 		8FDE84551B014139008EB0CA /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE84541B014139008EB0CA /* ConnectionManager.swift */; };
 		8FDE84611B025C65008EB0CA /* SubjectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE84601B025C65008EB0CA /* SubjectCategoryViewController.swift */; };
-		8FDE84631B025D90008EB0CA /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE84621B025D90008EB0CA /* CategoryViewController.swift */; };
 		8FDE84661B025F88008EB0CA /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE84651B025F88008EB0CA /* ContainerViewController.swift */; };
 		8FDE84681B025FD0008EB0CA /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE84671B025FD0008EB0CA /* SideMenuViewController.swift */; };
 		8FDE846A1B02600E008EB0CA /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE84691B02600E008EB0CA /* CenterViewController.swift */; };
@@ -130,7 +129,6 @@
 		8FDE84521B01412F008EB0CA /* CDManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDManager.swift; sourceTree = "<group>"; };
 		8FDE84541B014139008EB0CA /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		8FDE84601B025C65008EB0CA /* SubjectCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectCategoryViewController.swift; sourceTree = "<group>"; };
-		8FDE84621B025D90008EB0CA /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		8FDE84651B025F88008EB0CA /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		8FDE84671B025FD0008EB0CA /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		8FDE84691B02600E008EB0CA /* CenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
@@ -340,7 +338,6 @@
 				8FDE84481B013A5C008EB0CA /* MainNavigationController.swift */,
 				8FDE84401B012E1A008EB0CA /* SubjectViewController.swift */,
 				8FDE84601B025C65008EB0CA /* SubjectCategoryViewController.swift */,
-				8FDE84621B025D90008EB0CA /* CategoryViewController.swift */,
 				8FC5FB031B08E73600231470 /* ContentViewController.swift */,
 				8FEF4BC41B0A564800AE9709 /* Content1ViewController.swift */,
 				8FEF4BC61B0A565100AE9709 /* Content2ViewController.swift */,
@@ -464,7 +461,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D40258611B138EBB0067D86D /* QuizCell.swift in Sources */,
-				8FDE84631B025D90008EB0CA /* CategoryViewController.swift in Sources */,
 				8FDE84611B025C65008EB0CA /* SubjectCategoryViewController.swift in Sources */,
 				8FDE84551B014139008EB0CA /* ConnectionManager.swift in Sources */,
 				8FDE84491B013A5C008EB0CA /* MainNavigationController.swift in Sources */,

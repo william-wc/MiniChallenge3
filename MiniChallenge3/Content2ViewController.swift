@@ -50,7 +50,6 @@ class Content2ViewController: BaseUIViewController, UITableViewDelegate, UITable
         cell.webVideo.scrollView.scrollEnabled = false
         cell.webVideo.scrollView.bounces = false
         cell.webVideo.loadHTMLString(embedURL, baseURL: nil)
-        cell.topics.text = "Topicos a definir"
         return cell
     }
     
