@@ -9,6 +9,7 @@
 import UIKit
 
 class Content2ViewController: BaseUIViewController, UITableViewDelegate, UITableViewDataSource {
+    var embedURL = "https://www.youtube.com/embed/mQSVKCmeAQE?list=PLf1lowbdbFIAURvpD8Qy8PqwrMjwx0N64"
     
     let CellIdentifier = "cell"
     let anim_delay = 0.5
@@ -46,10 +47,11 @@ class Content2ViewController: BaseUIViewController, UITableViewDelegate, UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as! Content2Cell
-        var embedURL = "<iframe width=\"\(cell.webVideo.frame.width)\" height=\"\(cell.webVideo.frame.height)\" src=\"https://www.youtube.com/embed/mQSVKCmeAQE?list=PLf1lowbdbFIAURvpD8Qy8PqwrMjwx0N64\" frameborder=\"0\" allowfullscreen></iframe>"
         cell.webVideo.scrollView.scrollEnabled = false
         cell.webVideo.scrollView.bounces = false
-        cell.webVideo.loadHTMLString(embedURL, baseURL: nil)
+        let requestURL = NSURL(string: embedURL)
+        let request = NSURLRequest(URL: requestURL!)
+        cell.webVideo.loadRequest(request)
         cell.topics.text = "Topicos a definir"
         return cell
     }
