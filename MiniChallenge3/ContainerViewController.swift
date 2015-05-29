@@ -119,7 +119,9 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, S
         case 1:
             let nextScreen = UIStoryboard.mainStoryboard().instantiateViewControllerWithIdentifier("UserProfileViewController") as! UIViewController
             self.centerNavigationController.pushViewController(nextScreen, animated: true)
-        case 2: return
+        case 2:
+            let nextScreen = UIStoryboard.mainStoryboard().instantiateViewControllerWithIdentifier("QuizListViewController") as! UIViewController
+            self.centerNavigationController.pushViewController(nextScreen, animated: true)
         default: break
         }
     }
