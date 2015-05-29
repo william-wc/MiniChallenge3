@@ -52,11 +52,11 @@ class ConnectionManager
                 m.linkMateria = (obj["linkMateria"] as? [String])!
                 m.linkVideo   = (obj["linkVideo"] as? [String])!
                 m.imagemURL   = obj["linkImg"] as? String
-                println(m.descricao)
+//                println(m.descricao)
                 self.readyPergunta(classe, descricao: m.descricao, onComplete: { (pergunta) -> Void in
                     
                     m.perguntas = pergunta
-                    println(m.perguntas)
+//                    println(m.perguntas)
 
                     array.append(m)
                     cont++
@@ -91,30 +91,22 @@ class ConnectionManager
                     
                     cueri!.findObjectsInBackgroundWithBlock {
                         (items2: [AnyObject]?,erro: NSError?) -> Void in
-                        for obj2 in items2!{
-                          cont++
-                            quest = obj2["questao"] as! String
-                          index = obj2["index"] as! Int
-                          opcoes = obj2["opcoes"] as! [Int]
-                          resp = obj2["resolucao"]! as! String
-                            
-                            var p: Pergunta
-                            p = Pergunta(t: quest, i: index, alt: opcoes, d: resp)
-                            
-                            array.append(p)
-                            
-                            if(items2!.count <= cont){
-                            
-                                onComplete(array)
-                            
-                            }
-                            
-                            
-
+                        if items2 == nil || items2!.count == 0 {
+                            onComplete(array)
                         }
-                        
-
-                        
+                        for obj2 in items2! {
+                            cont++
+                            quest = obj2["questao"] as! String
+                            index = obj2["index"] as! Int
+                            opcoes = obj2["opcoes"] as! [Int]
+                            resp = obj2["resolucao"]! as! String
+                            
+                            array.append(Pergunta(t: quest, i: index, alt: opcoes, d: resp))
+                            
+                            if(cont >= items2!.count) {
+                                onComplete(array)
+                            }
+                        }
                     }
 
                 }
