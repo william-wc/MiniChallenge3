@@ -36,10 +36,9 @@ class Content3ViewController: BaseUIViewController , UITableViewDelegate, UITabl
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        println("Data\(data)")
         if segue.identifier == SegueToQuiz {
             let destination = segue.destinationViewController as! QuizViewController
-            //todo
+            destination.data = data[tableView.indexPathForSelectedRow()!.row]
         }
     }
     
