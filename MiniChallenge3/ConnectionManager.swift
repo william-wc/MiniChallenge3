@@ -61,7 +61,13 @@ class ConnectionManager
                     array.append(m)
                     cont++
                     if(cont >= items!.count) {
-                        onComplete(array)
+                        let sortedArray = sorted(array, {
+                            (str1: Materia, str2: Materia) -> Bool in
+                            return str1.descricao < str2.descricao
+                        })
+                        
+                        
+                        onComplete(sortedArray)
                     }
                     
                 })
@@ -104,7 +110,13 @@ class ConnectionManager
                             array.append(Pergunta(t: quest, i: index, alt: opcoes, d: resp))
                             
                             if(cont >= items2!.count) {
-                                onComplete(array)
+                                
+                                let sortedArray = sorted(array, {
+                                    (str1: Pergunta, str2: Pergunta) -> Bool in
+                                    return str1.titulo < str2.titulo
+                                })
+                                onComplete(sortedArray)
+                            
                             }
                         }
                     }
@@ -116,6 +128,10 @@ class ConnectionManager
         }
     }
     
+    
+    
+    
+        
     class func readyImage(classe:NSString,descricao:NSString,materia:NSString,obj:Materia, onComplete:((data:NSData?, error:NSError?)->Void)?) -> Void{
       var query = PFQuery(className:classe as String)
         
