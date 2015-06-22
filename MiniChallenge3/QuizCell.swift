@@ -15,6 +15,7 @@ class QuizCell: UITableViewCell {
     
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
+        self.backgroundColor = UIColor.clearColor()
         self.layer.cornerRadius = 10.0
         self.clipsToBounds = true
     }

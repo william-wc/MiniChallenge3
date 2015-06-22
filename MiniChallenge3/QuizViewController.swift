@@ -38,6 +38,7 @@ class QuizViewController:  UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet var question: UITextView!
     @IBOutlet var tvOp: UITableView!
     
+    var data:[AnyObject]!
     var ind: Int = 0
     var index: Int = 0
     var pos: Int = 0
